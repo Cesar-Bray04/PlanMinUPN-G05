@@ -1,0 +1,43 @@
+{
+  "audience_role": "student_project",
+  "campaigns": [
+    "C01",
+    "C02",
+    "C03"
+  ],
+  "canonical_full_exploration_release": true,
+  "dataset_id": "DS05",
+  "file_sha256": {
+    "README.md": "f529b4fa28c97a738f3ebfc5895175f7a44ec9a5b7503d398535e459372aa66d",
+    "alteration.csv": "f694c0bbd6cb51cfd815b969269b593974d5c199142b24ebb4d4f007e85acb21",
+    "assay.csv": "d63f50ec51ae297b02705580b6e97fd24e33b6958408f74e689608502f5a3c53",
+    "collar.csv": "120f6c46b1c42f9221173653380cc193da690be2ddb89842b38c75fe76b69556",
+    "data_dictionary.csv": "a064bd18a482f6868f1f257ce839940792e37d2338f00858214b742235cb2ff3",
+    "density.csv": "82b77e459f0c2970f3a1105f7adc9c2e28ae7e1b892eb23fe9f00d3a6128052b",
+    "lithology.csv": "60b19e485c322e48edeaac7545a6bcffd410cc16395eef56f0ad439600036eb8",
+    "survey.csv": "445b477c8e82ad03900845af48bd7e01d2ad6d3567424042cee366889928e892"
+  },
+  "files": [
+    "collar.csv",
+    "survey.csv",
+    "lithology.csv",
+    "alteration.csv",
+    "assay.csv",
+    "density.csv",
+    "README.md",
+    "data_dictionary.csv"
+  ],
+  "n_alteration_intervals": 0,
+  "n_assays": 5803,
+  "n_density_samples": 459,
+  "n_holes": 44,
+  "n_lithology_intervals": 120,
+  "n_surveys": 313,
+  "project_id": "santa_elena",
+  "project_name": "Santa Elena",
+  "release_id": "EXP03",
+  "release_type": "exploration",
+  "resource_or_reserve_statement": false,
+  "schema_version": "1.0",
+  "synthetic_data": true
+}
