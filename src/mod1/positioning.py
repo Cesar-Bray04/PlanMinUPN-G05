@@ -20,6 +20,7 @@ class PositionedIntervals(TypedDict):
 
 
 XYZ = tuple[float, float, float]
+PositionedSegment = tuple[float, float, XYZ, XYZ]
 
 
 def _md_value(value: object, *, table: str, row_number: int, field: str, hole_id: str) -> float:
@@ -120,6 +121,41 @@ def _interpolate_xyz(
     )
 
 
+def _interval_segments(
+    stations: list[tuple[float, XYZ]],
+    from_md: float,
+    to_md: float,
+    *,
+    table: str,
+    row_number: int,
+    hole_id: str,
+) -> tuple[PositionedSegment, ...]:
+    segments: list[PositionedSegment] = []
+    for (station_from, _), (station_to, _) in zip(stations, stations[1:]):
+        segment_from = max(from_md, station_from)
+        segment_to = min(to_md, station_to)
+        if segment_from >= segment_to:
+            continue
+        start = _interpolate_xyz(
+            stations,
+            segment_from,
+            table=table,
+            row_number=row_number,
+            hole_id=hole_id,
+            field="segment start",
+        )
+        end = _interpolate_xyz(
+            stations,
+            segment_to,
+            table=table,
+            row_number=row_number,
+            hole_id=hole_id,
+            field="segment end",
+        )
+        segments.append((segment_from, segment_to, start, end))
+    return tuple(segments)
+
+
 def _position_table(
     table: str,
     rows: list[CsvRow],
@@ -187,6 +223,14 @@ def _position_table(
                 "x_to": to_xyz[0],
                 "y_to": to_xyz[1],
                 "z_to": to_xyz[2],
+                "trajectory_segments": _interval_segments(
+                    stations,
+                    from_md,
+                    to_md,
+                    table=table,
+                    row_number=row_number,
+                    hole_id=hole_id,
+                ),
             }
         )
     return positioned

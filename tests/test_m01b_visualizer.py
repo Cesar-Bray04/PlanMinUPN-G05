@@ -1,14 +1,27 @@
 import csv
 
+import numpy as np
 import plotly.graph_objects as go
 import pytest
 
 from src.mod1.block_model_visualizer import (
     UNKNOWN_STATUS,
     build_block_model_figure,
+    build_geological_topographic_block_model_figure,
     read_block_model_csv,
     write_block_model_html,
 )
+from src.mod1.positioning import PositionedRow
+from src.mod1.topography import triangulate_topography
+
+
+def planar_surface():
+    return triangulate_topography(
+        np.array(
+            [[0, 0, 100], [10, 0, 110], [0, 10, 110], [10, 10, 120]],
+            dtype=float,
+        )
+    )
 
 
 FIELDS = [
@@ -145,3 +158,67 @@ def test_writes_self_contained_html_with_auditable_controls(tmp_path):
     assert UNKNOWN_STATUS not in html
     assert "legend" in html.lower()
     assert "no constituye validacion geologica ni topografica" in html
+
+
+def test_integrated_geology_topography_figure_includes_observations_contacts_and_section():
+    block_row = block(0, "POR", "ASSIGNED", support=1, support_codes="POR")
+    block_row.update(
+        {
+            "topo_z_m": "110",
+            "topo_status": "PARTIAL",
+            "lith_support_length_m": "8",
+            "lith_support_interval_count": "1",
+            "lith_support_interval_ids": "H-01:0.000000000-8.000000000",
+            "lith_assignment_reason": "ASSIGNED",
+        }
+    )
+    intervals: list[PositionedRow] = [
+        {
+            "hole_id": "H-01",
+            "from_m": 0.0,
+            "to_m": 4.0,
+            "lith_code": "POR",
+            "x_from": 1.0,
+            "y_from": 5.0,
+            "z_from": 9.0,
+            "x_to": 5.0,
+            "y_to": 5.0,
+            "z_to": 5.0,
+            "trajectory_segments": ((0.0, 4.0, (1.0, 5.0, 9.0), (5.0, 5.0, 5.0)),),
+        },
+        {
+            "hole_id": "H-01",
+            "from_m": 4.0,
+            "to_m": 8.0,
+            "lith_code": "VOL",
+            "x_from": 5.0,
+            "y_from": 5.0,
+            "z_from": 5.0,
+            "x_to": 9.0,
+            "y_to": 5.0,
+            "z_to": 1.0,
+            "trajectory_segments": ((4.0, 8.0, (5.0, 5.0, 5.0), (9.0, 5.0, 1.0)),),
+        },
+    ]
+    trajectory = {
+        "H-01": [
+            {"hole_id": "H-01", "md_m": 0.0, "x": 1.0, "y": 5.0, "z": 9.0},
+            {"hole_id": "H-01", "md_m": 8.0, "x": 9.0, "y": 5.0, "z": 1.0},
+        ]
+    }
+    surface = planar_surface()
+
+    figure = build_geological_topographic_block_model_figure(
+        [block_row], trajectory, surface, intervals, section_j=0
+    )
+
+    names = [trace.name for trace in figure.data]
+    assert any(name.startswith("Intervalos observados POR") for name in names)
+    assert any(name.startswith("Intervalos observados VOL") for name in names)
+    assert any(name.startswith("Contactos observados (1)") for name in names)
+    assert any(name.startswith("Sección bloques POR") for name in names)
+    assert any(name.startswith("Topografía (centros XY)") for name in names)
+    assert figure.layout.meta["observed_contacts"] == 1
+    assert figure.layout.meta["section_j"] == 0
+    assert figure.layout.meta["topography_used"] is True
+    assert figure.layout.meta["validation_claim"] is False
