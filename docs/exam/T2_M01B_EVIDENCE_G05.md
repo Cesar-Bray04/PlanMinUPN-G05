@@ -1,5 +1,54 @@
 # Evidencia de sesión T2 M01B — G05
 
+## ESTADO FINAL VIGENTE
+
+Este estado técnico final prevalece sobre todos los checkpoints, respuestas,
+estados Git y conclusiones históricas que siguen en este registro.
+
+- **Rama:** `feature/m01b-block-model`.
+- **HEAD técnico final:** `a70b546`.
+- **Estado base:** `BASE_VERIFIED`.
+- **Suite final técnica:** `41 passed`.
+- **Git:** `git diff --check` limpio antes del commit técnico final; árbol de trabajo limpio después del commit.
+
+### Estado vigente B00–B10
+
+| ID | Estado | Evidencia y alcance |
+|---|---|---|
+| B00 | `VERIFIED` | Rama `feature/m01b-block-model`, HEAD `a70b546` y árbol de trabajo limpio tras el commit técnico final. |
+| B01 | `VERIFIED` | Fuentes, manifiesto, integridad, campos y unidades verificados; topografía disponible y su cobertura se detalla en B09. |
+| B02 | `VERIFIED` | Validador ejecutado con 4 hallazgos `INFO` y ningún `ERROR` o `WARNING`; pruebas de la suite final aprobadas. |
+| B03 | `VERIFIED` | Trayectorias/posiciones XYZ utilizables; 44 sondajes, 313 estaciones y 120 intervalos litológicos posicionados. |
+| B04 | `VERIFIED` | Capacidad histórica: `stash@{0}` y `stash@{1}` contienen `src/mod1/visualizer.py`, `tests/test_visualizer.py` y `outputs/figures/m01_drillholes_3d_DS05_EXP03.html`; `baseline_M01B.txt` registra 62 tests y 10 subtests aprobados históricamente. El visualizador heredado no está activo en HEAD; la visualización vigente del producto final es P6. No es evidencia de ejecución actual desde HEAD. |
+| B05 | `VERIFIED` | Decisiones y resultados documentados en IMP-003/IMP-004 y reconciliados con el estado técnico final. |
+| B06 | `VERIFIED` | Auditoría observacional reproducida: 5.803 assays, 120 intervalos litológicos y 44 sondajes; 0 gaps, 0 overlaps y 0 discrepancias `length_m != to_m - from_m`; 76 contactos contiguos con cambio de código; 48 assays cruzan al menos un contacto; cobertura assay desde MD 0 hasta profundidad final en 44/44 sondajes. Pasaron 16 pruebas focalizadas relacionadas. Alcance limitado a coherencia/trazabilidad de observaciones, no interpretación geológica externa. |
+| B07 | `VERIFIED` | Regla de compositado documentada: longitud objetivo, ponderación por longitud y preservación de residuales; no implica interpretación de códigos. |
+| B08 | `VERIFIED` | 5.830 composites regenerados byte por byte idénticos al CSV versionado; SHA-256 `7a00a557bf604eba8ac45d158ba2a01a6d03caa8fccd14b020c47df478b4193c`. Longitud total `11,574.785091049 m`; Cu ponderado conservado dentro del redondeo del CSV (diferencia `4.55e-12`, por precisión del formato, no un fallo). Los 5.803 IDs raw aparecen en 9.506 referencias de origen por división en contactos; 5.750 composites completos y 80 residuales. |
+| B09 | `VERIFIED` | `data/raw/topography/Topopl.csv`: 218.112 puntos con campos `PID/X/Y/Z`; cobertura completa del grid en X/Y e intersección en Z. |
+| B10 | `VERIFIED` | Suite final de 41 pruebas aprobadas, `git diff --check` limpio antes del commit, artefactos trazables y árbol limpio después del commit técnico final. |
+
+### Gates y resultados técnicos vigentes
+
+- **P3, P4, P5 y P6:** `VERIFIED` dentro del alcance computacional/documental registrado; P4/P5 representan coherencia y trazabilidad respecto de observaciones, no certificación profesional externa.
+- **Grid:** bloques de `50 × 50 × 10 m`; dimensiones `15 × 14 × 55`, total `11.550` bloques. El origen es provisional.
+- **Topografía por bloques:** `ROCK` 6.853; `AIR` 4.493; `PARTIAL` 204.
+- **Validación geológica:** 120 intervalos posicionados; 76 contactos; `11,574.785091049 m` contabilizados dentro de la malla y `0 m` fuera; 978 bloques asignados con intersección positiva, 68 conflictos y 10.504 bloques sin soporte. Conflictos y bloques sin soporte permanecen `UNKNOWN/UNASSIGNED`.
+- **P6:** HTML 3D integrado con topografía, bloques, sondajes, intervalos litológicos, contactos y sección X-Z.
+
+### Limitaciones vigentes
+
+- CRS/EPSG y datum vertical no están documentados.
+- No está documentado el significado oficial de `OVB`, `BRX`, `POR`, `VOL` o `AIR`; se conservan como códigos literales.
+- La validación geológica comprueba coherencia con intervalos y contactos observados del repositorio; no constituye certificación profesional externa.
+- La clasificación topográfica es computacional y no estima fracción volumétrica de bloque.
+
+## HISTÓRICO — checkpoints y respuestas originales
+
+Todo el contenido que sigue conserva el registro cronológico original. Los estados
+de recuperación, bloqueos, HEAD, conteos de pruebas y estados parciales/bloqueados
+que aparecen allí describen únicamente el momento de cada checkpoint; no son el
+estado vigente y quedan sustituidos por **ESTADO FINAL VIGENTE**.
+
 ## Protocolo, límites y fidelidad
 
 - Protocolo aplicado durante esta sesión: `EXAM_T2_M01B v1.0`, perfil `TUTOR-EVALUADOR`; activación de sesión, no actualización del modelo.
@@ -681,7 +730,7 @@ python -m pytest -q
 - Inspección visual: Chrome headless renderizó el HTML local como PNG de 1600×1100 px; la imagen renderizada fue abierta y revisada. Se observan el título/advertencia de diagnóstico, las cuatro categorías asignadas, la leyenda con conteos, trayectorias y ejes XYZ. UNKNOWN aparece en la leyenda para activarse como filtro. No se incorporó topografía y no se interpretó la figura como validación geológica o topográfica.
 - P6 permanece `PARTIAL`: se verifica una visualización computacional auditable, no la validez geológica/minera de las categorías ni la relación con superficie. B09 continúa `BLOCKED`. No se modificaron datos raw, no se hizo commit ni push.
 
-### CHECKPOINT 30 — Cierre final de pauta T2 M01B
+### HISTÓRICO — CHECKPOINT 30 — Cierre anterior de pauta T2 M01B
 
 - Solicitud literal del estudiante:
 
@@ -708,3 +757,12 @@ python -m pytest -q
 - El cierre documental recoge como resultado final P6: 5 pruebas focalizadas aprobadas, 28 pruebas de suite aprobadas, HTML autónomo generado e inspeccionado visualmente; no se ejecutaron nuevas pruebas ni se generaron nuevos artefactos durante este checkpoint.
 - Estado Git al cierre documental: rama `feature/m01b-block-model`, HEAD `9771efbecf4fb9fb1763d2cb0e99fa3280137b4a`; `git diff --check` sin problemas tras actualizar PLAN_G05 y EVIDENCE_G05. Los archivos y estados detallados están enumerados en PLAN_G05. No se realizó commit ni push, no se aplicó/eliminó stash, no se instalaron dependencias en este cierre ni se modificaron archivos técnicos o datos fuente.
 - Próximo paso pendiente: confirmación docente verificable de procedencia oficial de topografía antes de abrir P3 o realizar cualquier uso/clasificación de esa superficie. La validación minera/geológica permanece pendiente.
+
+## ESTADO FINAL VIGENTE — prevalece sobre el checkpoint 30
+
+El estado técnico final actual es el descrito al inicio: rama
+`feature/m01b-block-model`, HEAD `a70b546`, base `BASE_VERIFIED`, árbol limpio
+después del commit técnico final y suite completa con `41 passed`. B00–B10 están
+`VERIFIED` con los alcances y cautelas de la tabla vigente; P3, P4, P5 y P6 están
+`VERIFIED` dentro de su alcance documentado. El checkpoint 30 y los registros
+anteriores se conservan como evidencia histórica, no como resumen vigente.

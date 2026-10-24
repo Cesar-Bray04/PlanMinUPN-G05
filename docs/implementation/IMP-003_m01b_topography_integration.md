@@ -1,5 +1,29 @@
 # IMP-003 — Integración topográfica al modelo de bloques preliminar
 
+## Estado final vigente
+
+- **HEAD técnico final:** `a70b546` en `feature/m01b-block-model`.
+- **Suite técnica final:** `41 passed`.
+- **B09:** `VERIFIED`.
+- **P3:** `VERIFIED` dentro del alcance computacional documentado.
+- La fuente `data/raw/topography/Topopl.csv` contiene 218.112 puntos con campos
+  `PID`, `X`, `Y`, `Z`. La cobertura del grid está comprobada en X/Y y la
+  intersección vertical en Z.
+- La interpolación usa triangulación Delaunay (TIN) e interpolación lineal
+  para obtener `topo_z_m` en los 210 centros XY únicos del grid de
+  `50 × 50 × 10 m` (forma `15 × 14 × 55`, 11.550 bloques). Si una consulta no
+  está cubierta, el proceso falla explícitamente; no extrapola ni escribe una
+  salida parcial.
+- Conteos `topo_status`: `ROCK` 6.853, `AIR` 4.493 y `PARTIAL` 204.
+  `topo_status` es independiente de `lith_code`; el código litológico literal
+  `AIR` no equivale a `topo_status=AIR`.
+- Esta clasificación compara la elevación interpolada en el centro XY con
+  `z_min`/`z_max`; no calcula la fracción volumétrica exacta sobre la huella
+  completa del bloque.
+- CRS/EPSG y datum vertical no están documentados formalmente.
+- La integración geológica y la visualización 3D final se documentan en
+  `IMP-004_m01b_geological_validation.md`.
+
 ## 1. Identificación
 
 - **Implementation ID:** IMP-003
@@ -96,14 +120,17 @@ Para cada bloque, con elevación interpolada `topo_z_m` y límites verticales
 
 ## 9. Etapas de implementación
 
-### Etapa 1 — 2026-10-23
+### HISTÓRICO — Etapa 1 — 2026-10-23
 
 - **Objetivo:** implementar P3 sin alterar datos raw ni derivados existentes.
 - **Trabajo realizado:** se añadió interpolación TIN, fallo explícito ante
   cobertura insuficiente, clasificación independiente de litología, tests,
   controles de visualización por litología/estado y nuevos artefactos.
 - **Resultado:** 210/210 centros XY interpolados; 11.550 bloques escritos.
-- **Pendiente:** revisión geológica/minera y confirmación formal de CRS/datum.
+- **Limitaciones identificadas entonces:** revisión geológica/minera y
+  confirmación formal de CRS/datum. La revisión de coherencia contra
+  observaciones geológicas y la integración se documentan en IMP-004; CRS y
+  datum siguen sin documentación formal.
 
 ## 10. Decisiones
 
@@ -152,7 +179,7 @@ docs/STATUS.md
 
 No se modificó `data/raw/`, el CSV preliminar anterior ni el HTML anterior.
 
-## 12. Pruebas realizadas
+## HISTÓRICO — 12. Pruebas de la etapa IMP-003
 
 ### Comandos ejecutados
 
@@ -170,7 +197,7 @@ python -m pytest -q
 - **Tests passed:** 5 pruebas específicas; 33 pruebas de suite completa.
 - **Tests failed:** 0 en ambas ejecuciones finales.
 
-Las pruebas verifican interpolación lineal, no extrapolación, estados y límites
+Las pruebas de esta etapa verifican interpolación lineal, no extrapolación, estados y límites
 de intersección, XY duplicados y encabezados, cobertura del modelo con la
 topografía real, conservación litológica y capas/modos de la visualización.
 
@@ -193,24 +220,34 @@ topografía real, conservación litológica y capas/modos de la visualización.
 - Se verificó que los hashes del raw, modelo preliminar y HTML anterior se
   mantuvieron iguales durante la generación.
 
-## 13. Validación minera
+## 13. Validación y límites de alcance
 
 - [x] Unidades de coordenadas/elevación manejadas en metros conforme a los
   datos disponibles.
 - [x] Se verificaron límites verticales y los tres casos sintéticos de
   clasificación/intersección.
 - [x] Se comprobó cobertura de todos los centros XY del grid con la fuente real.
-- [ ] Validación geológica/minera de la clasificación.
+- P3 queda `VERIFIED` para integración y clasificación topográfica
+  computacional.
+- La validación geológica observacional/computacional posterior está completada
+  y documentada en `IMP-004_m01b_geological_validation.md` (P4/P5/P6
+  `VERIFIED`). La casilla histórica de IMP-003 no indica que esos gates estén
+  pendientes.
+- La certificación profesional externa o validación operacional permanece fuera
+  de alcance; también siguen sin documentación formal el CRS/EPSG y el datum
+  vertical, y sin documentar el significado oficial de los códigos litológicos.
 - [ ] Confirmación formal de CRS/EPSG y datum vertical.
 - [ ] Validación de campo o comparación independiente de la superficie.
 
 ### Evidencia / comentario
 
-B09 puede considerarse `VERIFIED` en el árbol de trabajo con la recuperación y
-verificación indicadas por el usuario; el raw permaneció idéntico durante esta
-ejecución. P3 puede considerarse `VERIFIED` para cobertura, interpolación y
-clasificación computacionales del alcance aprobado. Estos estados no certifican
-el CRS/datum ni validan el modelo geológico o minero.
+B09 está `VERIFIED` y P3 está `VERIFIED` para cobertura, interpolación y
+clasificación computacionales del alcance aprobado, según el estado final
+vigente indicado al inicio. La validación observacional/computacional posterior
+está documentada en IMP-004; las casillas de esta etapa no implican que P4/P5/P6
+estén pendientes. La certificación profesional externa/operacional queda fuera
+de alcance. No se certifican CRS/datum ni se atribuye significado oficial a los
+códigos litológicos.
 
 ## 14. Limitaciones y pendientes
 
@@ -228,7 +265,7 @@ internos o discontinuidades. CRS/EPSG y datum vertical no están documentados
 formalmente. La visualización HTML autónoma tiene aproximadamente 53 MB por la
 superficie y la geometría de bloques; puede requerir memoria adicional al abrir.
 
-### FUTURE-01
+### FUTURE-01 — Limitación vigente
 
 Validar datum y alineación espacial con una referencia independiente y evaluar
 si la clasificación por centro XY es suficiente antes de emplear el modelo en
@@ -244,7 +281,7 @@ decisiones operacionales.
 - [x] Revisión de unidades.
 - [x] Documentación.
 
-## 16. Checklist de cierre
+## 16. Checklist de cierre de la etapa
 
 - [x] Problema minero documentado.
 - [x] Inputs y unidades documentados.
@@ -253,8 +290,13 @@ decisiones operacionales.
 - [x] Implementación terminada.
 - [x] Pruebas específicas y suite completa ejecutadas.
 - [x] Validación computacional realizada.
-- [ ] Validación geológica/minera realizada.
+- La validación geológica observacional/computacional posterior se completó y
+  está documentada en `IMP-004_m01b_geological_validation.md`; esta casilla de
+  cierre de la etapa IMP-003 no significa que P4/P5/P6 estén pendientes.
+- La certificación profesional externa/operacional permanece fuera de alcance.
 - [x] Archivos y limitaciones registrados.
 
-IMP-003 queda validado computacionalmente en el alcance aprobado; no se declara
-validación geológica/minera ni se realizó commit o push.
+El cierre de implementación y las pruebas enumeradas en esta sección
+corresponden a la etapa histórica de IMP-003. El estado técnico final vigente,
+la suite actual y la relación con la integración de IMP-004 se resumen en
+**Estado final vigente** al inicio de este documento.

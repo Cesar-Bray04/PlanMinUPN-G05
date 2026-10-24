@@ -1,4 +1,18 @@
-## Baseline previo a M01B
+## ESTADO FINAL / CONTINUIDAD
+
+- **Estado técnico final:** HEAD `a70b546` en la rama `feature/m01b-block-model`.
+- **Suite técnica final:** `41 passed`.
+- Este documento conserva el baseline y la implementación histórica del
+  compositado M01B. Sus estados y resultados describen las etapas registradas
+  en su momento; no sustituyen el estado final.
+- La topografía, su clasificación e integración se documentan en
+  `IMP-003_m01b_topography_integration.md`.
+- La validación de intervalos/contactos por intersección 3D y la visualización
+  3D integrada se documentan en `IMP-004_m01b_geological_validation.md`.
+- No se infieren CRS/EPSG, datum vertical ni significado oficial de códigos
+  litológicos: no están documentados formalmente.
+
+## HISTÓRICO — Baseline previo a M01B
 
 **Evidencia:**  
 `outputs/logs/baseline_M01B.txt`
@@ -30,7 +44,7 @@ WARNING
 **Interpretación:**
 pytest terminó con exit code 0 y el resumen reporta pruebas pasadas. Se clasifica como WARNING porque el git status registrado muestra archivos modificados y no rastreados al inicio de M01B. El log no registra explícitamente el conteo de fallos ni warnings de pytest.
 
-## Auditoría de inputs M01B
+## HISTÓRICO — Auditoría de inputs M01B
 
 Auditoría física de `data/raw/`, `data/processed/`, `outputs/` y `src/`.
 Los CSV conservan sus datos fuente sin modificación. Los tipos declarados
@@ -88,7 +102,7 @@ en los CSV se leen inicialmente como texto.
 No se tomaron decisiones de compositado, dominios, geometría/tamaño de bloque,
 estimación o asignación de densidad durante esta auditoría.
 
-## Análisis de assay previo al compositado
+## HISTÓRICO — Análisis de assay previo al compositado
 
 ### Fuente y alcance
 
@@ -204,7 +218,7 @@ modificó la fuente:
 - `outputs/tables/assay_potential_review_flags_DS05_EXP03.csv`
 - `outputs/figures/assay_length_distribution_DS05_EXP03.svg`
 
-### Incertidumbres y pendientes
+### Incertidumbres y pendientes en la etapa previa al compositado
 
 - Confirmar por qué `mo_pct` y `au_gt` son cero en todos los registros.
 - Aprobar la longitud de composite y el tratamiento de los 30 residuales.
@@ -213,9 +227,10 @@ modificó la fuente:
 - Los flags de Cu alto son descriptivos y no sustituyen revisión geológica,
   analítica ni de QA/QC. No se dispone aquí de reglas de capping ni de datos
   QA/QC documentados.
-- No se implementó `compositing.py` ni se generaron composites.
+- En esta etapa previa a la implementación documentada a continuación, no se
+  había implementado `compositing.py` ni generado composites.
 
-## Implementación del compositado
+## HISTÓRICO — Implementación del compositado
 
 ### DECISION-01 aplicada
 

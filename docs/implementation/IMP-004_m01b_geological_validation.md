@@ -1,5 +1,37 @@
 # IMP-004 — Validación de intervalos litológicos observados en bloques
 
+## Estado final vigente
+
+- **HEAD técnico final:** `a70b546` en `feature/m01b-block-model`.
+- **Suite técnica final:** `41 passed`.
+- **P4, P5 y P6:** `VERIFIED` dentro del alcance aprobado y descrito en este
+  documento.
+- **Alcance:** coherencia y trazabilidad respecto de intervalos litológicos y
+  contactos observados en el repositorio; no es certificación profesional
+  externa ni validación operacional.
+- La validación contabilizó 120 intervalos posicionados y 76 contactos;
+  `11,574.785091049 m` dentro de la malla y `0 m` fuera. Se asignaron 978 bloques
+  con intersección positiva; 68 conflictos y 10.504 bloques sin soporte
+  permanecen `UNKNOWN/UNASSIGNED`. Los códigos vacíos también quedan sin
+  asignación. No se usa voto mayoritario ni se extrapolan códigos a bloques
+  vecinos; cada bloque asignado conserva IDs y soporte de intervalos fuente.
+- `lith_code`/`lith_status` son independientes de `topo_status`. La tabla
+  cruzada litología-topografía fue revisada; los 7 casos `OVB` con
+  `topo_status=AIR` se conservan como observaciones cautelares, sin recodificar.
+  `AIR` litológico no equivale a `topo_status=AIR`.
+- P6 corresponde a `outputs/figures/m01b_block_model_geology_topography.html`:
+  visualización integrada con superficie topográfica, bloques, sondajes,
+  intervalos litológicos, 76 contactos, `UNKNOWN/UNASSIGNED`, controles
+  separados de litología/topografía, sección X-Z y hover con datos de soporte
+  para auditoría.
+- Pruebas de la etapa geológica: 13 focalizadas aprobadas; suite técnica final:
+  41 aprobadas. `git diff --check` quedó limpio antes del commit técnico final.
+- Se mantienen las limitaciones de IMP-003: CRS/EPSG y datum vertical no
+  documentados formalmente; no está documentado el significado oficial de
+  `OVB`, `BRX`, `POR`, `VOL` o `AIR`.
+- Fuera de alcance: estimación de leyes, recursos/reservas, pit y
+  secuenciamiento.
+
 ## 1. Identificación
 
 - **Implementation ID:** IMP-004
@@ -59,8 +91,8 @@ significado.
 
 - Se procesaron **120 intervalos** en **11.550 bloques** y se identificaron
   **76 contactos contiguos con cambio de código**.
-- Longitud downhole observada: **11.574,785091049 m**; dentro de la malla:
-  **11.574,785091049 m**; fuera: **0 m**. El mayor desbalance absoluto por
+- Longitud downhole observada: **11,574.785091049 m**; dentro de la malla:
+  **11,574.785091049 m**; fuera: **0 m**. El mayor desbalance absoluto por
   intervalo fue **2,27e-13 m**, por redondeo numérico.
 - **978** bloques quedaron asignados (`BRX` 54, `OVB` 36, `POR` 463, `VOL` 425).
   Los otros **10.572** son `UNKNOWN/UNASSIGNED`: **10.504** sin soporte y **68**
@@ -101,7 +133,9 @@ geológica interpretada.
 - `python -m pytest tests\test_m01b_geological_validation.py tests\test_m01b_visualizer.py -q`
   → **13 passed**.
 - `python -m pytest -q` → **41 passed**, 0 fallidas.
-- `git diff --check` → sin problemas.
+- `git diff --check` → sin problemas en la verificación de esta etapa. La
+  verificación antes del commit técnico final se registra en **Estado final
+  vigente**.
 - Los casos focalizados cubren intersección de varios bloques, contabilización
   dentro/fuera, conflicto sin mayoría, código vacío, ausencia de propagación,
   cruce de esquina/contactos de medida cero, quiebres de trayectoria y
@@ -115,7 +149,7 @@ geológica interpretada.
 - La figura HTML tiene **71 trazas** y mide **52.479.274 bytes**. Los dos CSV
   geológicos miden **1.658.226** y **1.924.416 bytes** respectivamente.
 
-## 7. Archivos afectados
+## 7. Archivos afectados durante la etapa IMP-004
 
 ```text
 src/mod1/positioning.py
@@ -130,12 +164,15 @@ docs/implementation/IMP-004_m01b_geological_validation.md
 docs/STATUS.md
 ```
 
+Este registro de archivos y Git corresponde al estado al cierre de la etapa
+IMP-004, previo al commit técnico final; no es el estado Git actual.
+
 No se modificó ningún archivo de `data/raw/`; `git diff -- data/raw` no reporta
 cambios en el árbol de trabajo. `Topopl.csv` conserva el estado staged previo al
 gate, sin cambios de este trabajo. No se sobrescribieron el modelo preliminar ni
 el derivado/HTML de topografía. No hubo commit ni push.
 
-## 8. Estado de gates
+## 8. Estado final de gates
 
 - **P4 — `VERIFIED`** para intersección computacional, contabilización de los
   intervalos, asignación conservadora, contactos posicionados y trazabilidad a

@@ -1,14 +1,44 @@
 # Plan conceptual T2 M01B — G05
 
-## Estado y alcance
+## Estado vigente
 
-- Protocolo aplicado durante esta sesión: `EXAM_T2_M01B v1.0`, perfil `TUTOR-EVALUADOR`.
-- Estado de recuperación al cierre de este registro: `RECOVERY_BLOCKED`; no se declaró `BASE_VERIFIED`.
-- Modo: `RECOVERY_BLOCKED`. P6 se implementó bajo autorización explícita; las demás decisiones técnicas conservan sus estados y límites registrados.
-- No se aplicó `stash apply/pop`; se recuperaron selectivamente, con autorización, únicamente `src/mod1/validator.py`, `src/mod1/desurvey.py` y `src/mod1/positioning.py` desde `stash@{0}`. Con gates separados se añadieron `tests/test_m01_spatial.py`, `src/mod1/block_model.py`, `tests/test_m01b_block_model.py`, `src/mod1/block_model_visualizer.py` y `tests/test_m01b_visualizer.py`; se generaron los derivados autorizados `data/processed/m01b/block_model_preliminary.csv` y `outputs/figures/m01b_block_model_preliminary.html`. No se modificaron gobernanza, datos fuente, otros derivados, IMP-002 ni otros archivos de código fuente. No hubo commit ni push.
-- Los documentos de examen se encontraron en `docs/exam/T2_M01B/`; las dos rutas de evidencia G05 se crean por autorización expresa del estudiante.
+- **Rama:** `feature/m01b-block-model`.
+- **HEAD técnico final:** `a70b546` (`feat: integrate topography and geological validation into M01B block model`).
+- **Árbol de trabajo:** limpio después del commit técnico final.
+- **Suite completa:** `41 passed`.
+- **`git diff --check`:** limpio antes del commit técnico final.
+- **Estado base vigente:** `BASE_VERIFIED`; B00–B10 están revisados en la tabla siguiente. B04 queda verificado como capacidad histórica, no como módulo activo en HEAD.
+- **Alcance:** cierre técnico computacional de M01B; la validación geológica comprueba coherencia contra intervalos y contactos observados, no constituye certificación profesional externa.
 
-## Diagnóstico de base B00–B10
+### Estado vigente de B00–B10
+
+| ID | Estado | Evidencia y límite |
+|---|---|---|
+| B00 | `VERIFIED` | Rama y HEAD indicados arriba; árbol de trabajo limpio después del commit técnico final. |
+| B01 | `VERIFIED` | Se mantienen las verificaciones registradas de fuentes, manifiesto, integridad, campos y unidades. La fuente topográfica está disponible y se trata específicamente en B09. |
+| B02 | `VERIFIED` | La ejecución documentada del validador reportó 4 hallazgos `INFO` y ningún `ERROR` o `WARNING`; las pruebas de la suite final pasaron. |
+| B03 | `VERIFIED` | Se generaron trayectorias y posiciones XYZ utilizables: 44 sondajes/313 estaciones y 120 intervalos litológicos posicionados; las pruebas de la suite final pasaron. |
+| B04 | `VERIFIED` | Capacidad histórica verificada: `stash@{0}` y `stash@{1}` contienen `src/mod1/visualizer.py`, `tests/test_visualizer.py` y `outputs/figures/m01_drillholes_3d_DS05_EXP03.html`; `baseline_M01B.txt` registra históricamente 62 tests y 10 subtests aprobados. El visualizador heredado no está activo en HEAD; la visualización vigente del producto final es la integrada de P6. Esta evidencia no representa una ejecución actual desde HEAD. |
+| B05 | `VERIFIED` | Las decisiones y resultados vigentes están documentados en IMP-003 e IMP-004 y reconciliados aquí con el HEAD técnico final. |
+| B06 | `VERIFIED` | Auditoría reproducida sobre los datos actuales: 5.803 assays y 120 intervalos litológicos en 44 sondajes; 0 gaps, 0 overlaps y 0 discrepancias `length_m != to_m - from_m`; 76 contactos contiguos con cambio de código y 48 assays que cruzan al menos un contacto; cobertura assay desde MD 0 hasta profundidad final en 44/44 sondajes. Las pruebas focalizadas relacionadas pasaron: 16. El alcance es coherencia/trazabilidad de datos observados, no interpretación geológica externa. |
+| B07 | `VERIFIED` | La regla de compositado y sus decisiones siguen documentadas en el baseline; no se atribuye interpretación geológica a los códigos. |
+| B08 | `VERIFIED` | `src/mod1/compositing.py` regeneró 5.830 composites byte por byte idénticos a `data/processed/m01b/composites.csv` versionado (SHA-256 `7a00a557bf604eba8ac45d158ba2a01a6d03caa8fccd14b020c47df478b4193c`). Longitud total: 11.574,785091049 m; Cu ponderado conservado dentro del redondeo por precisión del formato CSV (diferencia `4.55e-12`, no un fallo). Los 5.803 IDs raw están representados en 9.506 referencias de origen debido a divisiones en contactos; 5.750 composites completos y 80 residuales. Las pruebas focalizadas de compositing pasaron. |
+| B09 | `VERIFIED` | `data/raw/topography/Topopl.csv`: 218.112 puntos, campos `PID/X/Y/Z`, cobertura completa del grid en X/Y e intersección en Z. |
+| B10 | `VERIFIED` | Suite completa con 41 pruebas aprobadas, `git diff --check` limpio antes del commit, artefactos y documentación trazables, y árbol limpio tras el commit técnico final. |
+
+### Geometría y resultados vigentes
+
+- **Grid preliminar:** bloques de `50 × 50 × 10 m`; dimensiones `15 × 14 × 55`, total `11.550` bloques. El origen documentado es provisional, no una referencia minera oficial.
+- **Clasificación topográfica:** `ROCK` 6.853; `AIR` 4.493; `PARTIAL` 204. Es una clasificación computacional por elevación interpolada en XY, no una fracción volumétrica.
+- **Validación geológica observada:** 120 intervalos litológicos posicionados y 76 contactos; `11,574.785091049 m` contabilizados dentro de la malla y `0 m` fuera. Hay 978 bloques con intersección positiva, 68 conflictos y 10.504 bloques sin soporte. Conflictos y bloques sin soporte permanecen `UNKNOWN/UNASSIGNED`.
+- **Visualización P6:** HTML 3D integrado con topografía, bloques, sondajes, intervalos litológicos, contactos y sección X-Z.
+- **Gates vigentes:** B09, P3, P4, P5 y P6 `VERIFIED` en el alcance computacional/documental descrito. P4/P5 verifican coherencia y trazabilidad respecto de observaciones; no certifican un modelo geológico profesional.
+- No están documentados CRS/EPSG ni datum vertical. No se infiere el significado geológico de `OVB`, `BRX`, `POR`, `VOL` o `AIR`.
+
+## HISTÓRICO — diagnóstico de base B00–B10 anterior
+
+Los estados y pendientes de esta sección reflejan el diagnóstico inicial y quedan
+conservados como historial; no describen el estado técnico final vigente.
 
 | ID | Estado | Evidencia y pendiente |
 |---|---|---|
@@ -24,11 +54,11 @@
 | B09 | `BLOCKED` | `data/raw/topography/Topopl.csv` no existe en HEAD ni aparece en el manifiesto; sí está en el snapshot no rastreado de `stash@{0}`. Tiene 218.112 registros, cabecera `PID,X,Y,Z`, SHA-256 `1724a97f1fa6f6a059def896d1ba566b1e23d6f78781034bf2e3f53d2d4b1887` y rangos coincidentes con IMP-002. No hay referencia verificable que pruebe que ese archivo concreto es la fuente oficial. No se usó para clasificar. |
 | B10 | `PARTIAL` | La suite disponible en el árbol de trabajo terminó con 23 pruebas aprobadas, incluidas seis para validator/desurvey/positioning y seis de block model. `git diff --check` no reportó problemas. Los módulos siguen modificados respecto de HEAD y no hay validación minera/topográfica completa; no equivale a un checkout limpio ni cierra B10. Los 71 tests y 10 subtests del candidato aislado son evidencia histórica separada. |
 
-### Estado base
+### Estado base histórico (anterior)
 
 `RECOVERY_BLOCKED`, no `BASE_VERIFIED`. M01 fue recuperado selectivamente al árbol de trabajo con autorización y ahora cuenta con seis pruebas sintéticas focalizadas; la suite disponible obtuvo 17 aprobaciones. Aun así, los tres módulos están modificados respecto de HEAD, no se verificó un checkout limpio y falta reconciliar IMP-002 con el estado actual. También falta confirmar con el docente la procedencia oficial de la topografía y verificarla. B09 bloquea cualquier clasificación real aire/roca/parcial y su validación.
 
-## Decisiones conceptuales registradas
+## HISTÓRICO — decisiones conceptuales registradas
 
 ### P1 — códigos, límites y estados
 
@@ -79,13 +109,13 @@
 - El hover incluye índices, centro XYZ (m), código/estado litológico, conteos/códigos de soporte y soporte de composites; las trayectorias muestran MD y XYZ. La inspección se realizó con captura HTML en Chrome headless y revisión de la imagen renderizada; se observaron título/advertencia, leyenda, categorías asignadas y trayectorias. La salida declara que no usa topografía ni constituye validación geológica/topográfica.
 - Pruebas reales finales: `python -m pytest tests\test_m01b_visualizer.py -q` → 5 aprobadas; `python -m pytest -q` → 28 aprobadas. P6 permanece `PARTIAL`: la salida visual diagnóstica existe, pero no prueba validez geológica, minera ni topográfica.
 
-## Gating y alcance
+## HISTÓRICO — gating y alcance anterior
 
 - Se aprobaron y ejecutaron gates limitados para recuperar selectivamente tres módulos M01, crear pruebas sintéticas en `tests/`, construir el grid preliminar con asignación categórica por punto medio e implementar el visualizador diagnóstico 3D P6. No se aprobó ni ejecutó clasificación topográfica/minera.
 - P2 fue aprobado conceptualmente y su geometría candidata se generó bajo el gate P4. P3 y validación minera completa (`P5_VALIDATION`) siguen pendientes. P6 tiene visualizador y salida generada bajo el gate aprobado, pero no equivale a validación geológica/topográfica.
 - B02/B03 permanecen `PARTIAL`; B09 permanece `BLOCKED`. Bajo `RECOVERY_BLOCKED` no procede atribuir validación minera/topográfica ni asumir topografía oficial, geometría final, interpretación geológica o resultados no comprobados.
 
-## Cierre final T2 M01B
+## HISTÓRICO — cierre anterior a IMP-003/IMP-004
 
 ### Evidencias esperadas y artefactos/rutas reales
 
@@ -117,3 +147,19 @@
 - **Pendientes:** confirmar con el docente la procedencia oficial de `Topopl.csv`; solo después revisar cobertura, unidades y alineación y decidir si se abre P3. También falta completar la validación geológica/minera, confirmar el significado de los códigos, evaluar el criterio de punto medio y cerrar la reproducibilidad desde HEAD limpio. La geometría P2 aún tiene origen, extensión, borde y fundamento vertical provisionales.
 - **Git final:** rama `feature/m01b-block-model`, HEAD `9771efbecf4fb9fb1763d2cb0e99fa3280137b4a`. En el último `git status --short`: modificados `src/mod1/desurvey.py`, `src/mod1/positioning.py`, `src/mod1/validator.py`; no rastreados `data/processed/m01b/block_model_preliminary.csv`, `docs/exam/`, `outputs/figures/m01b_block_model_preliminary.html`, `src/mod1/block_model.py`, `src/mod1/block_model_visualizer.py`, `tests/test_m01_spatial.py`, `tests/test_m01b_block_model.py` y `tests/test_m01b_visualizer.py`. No hubo commit ni push; stash no aplicado ni eliminado. No se modificaron datos fuente ni gobernanza.
 - **Siguiente paso pendiente:** resolver B09 obteniendo confirmación docente verificable de procedencia. Hasta entonces, no usar la topografía ni ejecutar clasificación topográfica; las tareas posteriores de validación minera/geológica permanecen pendientes. Este cierre documental y la visualización P6 no cierran técnicamente la pauta.
+
+## Estado vigente al cierre
+
+El resultado actual coincide con el estado vigente declarado al inicio de este
+documento: rama `feature/m01b-block-model`, HEAD `a70b546`, árbol limpio tras el
+commit técnico final y suite completa con `41 passed`. `git diff --check` quedó
+limpio antes de ese commit.
+
+| Estado actual | Resultado |
+|---|---|
+| B00–B10 | B00 `VERIFIED`; B01 `VERIFIED`; B02 `VERIFIED`; B03 `VERIFIED`; B04 `VERIFIED` (capacidad histórica; no activa en HEAD); B05 `VERIFIED`; B06 `VERIFIED` (auditoría observacional); B07 `VERIFIED`; B08 `VERIFIED` (compositing reproducible); B09 `VERIFIED`; B10 `VERIFIED`. |
+| P3 / P4 / P5 / P6 | `VERIFIED` dentro del alcance técnico y computacional indicado. |
+| Topografía | `Topopl.csv`, 218.112 puntos `PID/X/Y/Z`; cobertura completa del grid en X/Y e intersección en Z. Conteos: `ROCK` 6.853, `AIR` 4.493, `PARTIAL` 204. |
+| Geología | 120 intervalos posicionados; 76 contactos; 11,574.785091049 m dentro y 0 m fuera; 978 bloques con intersección positiva, 68 conflictos y 10.504 sin soporte. Conflictos/sin soporte: `UNKNOWN/UNASSIGNED`. |
+| P6 | HTML 3D integrado con topografía, bloques, sondajes, intervalos, contactos y sección X-Z. |
+| Límites | Sin CRS/EPSG ni datum vertical documentados; sin significado inferido para los códigos; validación contra observaciones, no certificación profesional externa. |
