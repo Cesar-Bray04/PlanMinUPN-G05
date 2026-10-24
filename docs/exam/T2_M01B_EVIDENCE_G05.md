@@ -6,16 +6,20 @@ Este estado técnico final prevalece sobre todos los checkpoints, respuestas,
 estados Git y conclusiones históricas que siguen en este registro.
 
 - **Rama:** `feature/m01b-block-model`.
-- **HEAD técnico final:** `a70b546`.
+- **HEAD actual/documental:** `207ba75`.
+- **Commit técnico del modelo final:** `a70b546`.
 - **Estado base:** `BASE_VERIFIED`.
 - **Suite final técnica:** `41 passed`.
 - **Git:** `git diff --check` limpio antes del commit técnico final; árbol de trabajo limpio después del commit.
+- **P2:** decisión conceptual aprobada para el alcance preliminar; reproducibilidad y cobertura verificadas, optimización del tamaño/origen no demostrada. Para el modelo categórico preliminar del alcance T2 se adopta una malla reproducible de 50 × 50 × 10 m, con forma 15 × 14 × 55 (11,550 bloques) y origen local provisional (242225, 8196250, 2990) m. La dimensión horizontal de 50 m se eligió como escala conceptual comparable con las medianas observadas de distancia al collar vecino más cercano (55.90 m) y de espaciamiento por sección (54.90 m; mediana de las medianas por sección: 58.77 m); la cobertura es heterogénea y este análisis no constituye variografía ni demuestra un tamaño óptimo. La dimensión vertical de 10 m se conserva como discretización adoptada, pero no está justificada formalmente por el espaciamiento vertical observado. El origen se obtuvo por redondeo inferior respecto del cero numérico local con incrementos de 25/25/10 m para la candidata conceptual anterior y se retuvo al pasar a 50/50/10 m; no es una referencia oficial.
+- **Cobertura y procedencia de Topopl:** 44/44 collars y 313/313 estaciones de trayectoria dentro del grid; 120 intervalos litológicos contabilizados dentro por `11,574.785091049 m` y 0 m fuera; los 210 centros XY tienen elevación TIN finita. De los 218.112 puntos raw, 69.266 están dentro del rectángulo XY del grid y 148.846 fuera. `Topopl.csv` está integrado técnicamente, pero no figura en el `release_manifest.json` original. La referencia histórica de compatibilidad espacial indicada por el docente no acredita procedencia oficial.
+- **Referencia espacial:** CRS/EPSG de `Topopl.csv` y datum/referencia vertical de `Z` NO DOCUMENTADOS. El release documenta coordenadas/cartesianas locales en metros, pero no hay evidencia suficiente para asignar formalmente esa referencia a Topopl; no se infieren UTM, WGS84, PSAD56, zona ni transformación. `collar.csv.z` no permite inferir el datum topográfico.
 
 ### Estado vigente B00–B10
 
 | ID | Estado | Evidencia y alcance |
 |---|---|---|
-| B00 | `VERIFIED` | Rama `feature/m01b-block-model`, HEAD `a70b546` y árbol de trabajo limpio tras el commit técnico final. |
+| B00 | `VERIFIED` | Rama `feature/m01b-block-model`, HEAD actual/documental `207ba75`, commit técnico del modelo final `a70b546` y árbol de trabajo limpio tras ese commit técnico. |
 | B01 | `VERIFIED` | Fuentes, manifiesto, integridad, campos y unidades verificados; topografía disponible y su cobertura se detalla en B09. |
 | B02 | `VERIFIED` | Validador ejecutado con 4 hallazgos `INFO` y ningún `ERROR` o `WARNING`; pruebas de la suite final aprobadas. |
 | B03 | `VERIFIED` | Trayectorias/posiciones XYZ utilizables; 44 sondajes, 313 estaciones y 120 intervalos litológicos posicionados. |
@@ -761,8 +765,13 @@ python -m pytest -q
 ## ESTADO FINAL VIGENTE — prevalece sobre el checkpoint 30
 
 El estado técnico final actual es el descrito al inicio: rama
-`feature/m01b-block-model`, HEAD `a70b546`, base `BASE_VERIFIED`, árbol limpio
-después del commit técnico final y suite completa con `41 passed`. B00–B10 están
+`feature/m01b-block-model`, HEAD actual/documental `207ba75`, commit técnico del
+modelo final `a70b546`, base `BASE_VERIFIED`, árbol limpio después del commit
+técnico y suite completa con `41 passed`. B00–B10 están
 `VERIFIED` con los alcances y cautelas de la tabla vigente; P3, P4, P5 y P6 están
 `VERIFIED` dentro de su alcance documentado. El checkpoint 30 y los registros
 anteriores se conservan como evidencia histórica, no como resumen vigente.
+P2 es una decisión conceptual aprobada para el alcance preliminar, no una
+selección técnica definitiva u optimizada; la cobertura de la topografía se
+refiere a los centros XY necesarios para clasificar el grid, no a la nube raw
+completa.

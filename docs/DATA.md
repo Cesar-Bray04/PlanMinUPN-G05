@@ -16,6 +16,12 @@ documentados en el repositorio.
 | `data/raw/alteration.csv` | 0 | Fuente oficial vacía; conserva su esquema, sin registros | No aplicable |
 | `data/raw/topography/Topopl.csv` | 218.112 | `PID`, `X`, `Y`, `Z` | Coordenadas/elevación expresadas en m; CRS/EPSG y datum vertical no documentados formalmente |
 
+`Topopl.csv` está integrado técnicamente y es utilizable para la cobertura
+computacional del grid, pero no aparece en el `data/raw/release_manifest.json`
+original. Hay una referencia documental/histórica de compatibilidad espacial
+indicada por el docente; no debe presentarse como prueba de procedencia oficial
+del archivo ni como inclusión en el release manifest.
+
 Los códigos litológicos observados en `lith_code` son `OVB`, `BRX`, `POR`,
 `VOL` y `AIR`. El repositorio no documenta su significado oficial y se
 conservan literalmente. El código literal `AIR` no equivale a
@@ -29,8 +35,17 @@ conservan literalmente. El código literal `AIR` no equivale a
 | Y | 8195892.194946 | 8197095.651855 |
 | Z | 3120.858516 | 3596.000000 |
 
-La cobertura del grid se comprobó en X/Y y su intersección vertical en Z. No se
-afirma un CRS/EPSG ni un datum vertical.
+La cobertura topográfica comprobada corresponde a los 210 centros XY únicos
+necesarios para clasificar el grid: todos obtuvieron elevación TIN finita; la
+intersección vertical con el grid también se comprobó en Z. No significa que
+toda la nube raw esté dentro del grid: 69.266 puntos están dentro del
+rectángulo XY del modelo y 148.846 fuera.
+
+El release documenta coordenadas/cartesianas locales en metros, pero no hay
+evidencia suficiente para asignar formalmente esa referencia a `Topopl.csv`.
+Su CRS/EPSG es NO DOCUMENTADO; no se infieren UTM, WGS84, PSAD56, zona ni
+transformación. El datum o referencia vertical de `Topopl.csv.Z` también es NO
+DOCUMENTADO; la descripción de `collar.csv.z` no permite inferirlo.
 
 ## Derivados principales
 
@@ -45,6 +60,27 @@ afirma un CRS/EPSG ni un datum vertical.
 El grid usado tiene bloques de `50 × 50 × 10 m`, forma `15 × 14 × 55` y
 11.550 bloques. El origen usado es `(242225, 8196250, 2990) m`; es un origen
 local provisional.
+
+Para el modelo categórico preliminar del alcance T2 se adopta una malla
+reproducible de 50 × 50 × 10 m, con forma 15 × 14 × 55 (11,550 bloques) y
+origen local provisional (242225, 8196250, 2990) m. La dimensión horizontal de
+50 m se eligió como escala conceptual comparable con las medianas observadas de
+distancia al collar vecino más cercano (55.90 m) y de espaciamiento por sección
+(54.90 m); la cobertura es heterogénea y este análisis no constituye variografía
+ni demuestra un tamaño óptimo. La dimensión vertical de 10 m se conserva como
+discretización adoptada, pero no está justificada formalmente por el
+espaciamiento vertical observado. El origen se obtuvo por redondeo inferior
+respecto del cero numérico local con incrementos de 25/25/10 m para la candidata
+conceptual anterior y se retuvo al pasar a 50/50/10 m; no es una referencia
+oficial.
+
+P2 es una decisión conceptual aprobada para el alcance preliminar;
+reproducibilidad y cobertura verificadas, optimización del tamaño/origen no
+demostrada. Los 50 m en X/Y son comparables con las medianas observadas de
+55.90 m entre collars vecinos, 54.90 m por sección y 58.77 m para la mediana de
+las medianas por sección; la cobertura espacial es heterogénea. No es
+variografía ni demuestra un tamaño óptimo. Los 10 m en Z son una discretización
+adoptada, sin justificación vertical formal suficiente.
 
 ## Auditorías observacionales
 

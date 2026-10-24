@@ -1,7 +1,14 @@
 ## ESTADO FINAL / CONTINUIDAD
 
-- **Estado técnico final:** HEAD `a70b546` en la rama `feature/m01b-block-model`.
+- **HEAD actual/documental:** `207ba75` en la rama `feature/m01b-block-model`.
+- **Commit técnico del modelo final:** `a70b546`.
 - **Suite técnica final:** `41 passed`.
+- **P2 vigente:** decisión conceptual aprobada para el alcance preliminar;
+  reproducibilidad y cobertura verificadas, optimización del tamaño/origen no
+  demostrada. El grid de `50 × 50 × 10 m` usa origen local provisional
+  `(242225, 8196250, 2990) m`, con forma `15 × 14 × 55` (11.550 bloques).
+  IMP-003 documenta la cobertura topográfica de los centros XY y sus límites;
+  IMP-004 registra la cobertura geológica observacional.
 - Este documento conserva el baseline y la implementación histórica del
   compositado M01B. Sus estados y resultados describen las etapas registradas
   en su momento; no sustituyen el estado final.

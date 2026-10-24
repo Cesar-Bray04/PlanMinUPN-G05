@@ -2,13 +2,32 @@
 
 ## Estado final vigente
 
-- **HEAD técnico final:** `a70b546` en `feature/m01b-block-model`.
+- **HEAD actual/documental:** `207ba75` en `feature/m01b-block-model`.
+- **Commit técnico del modelo final:** `a70b546`.
 - **Suite técnica final:** `41 passed`.
 - **B09:** `VERIFIED`.
 - **P3:** `VERIFIED` dentro del alcance computacional documentado.
+- El grid de referencia de P3 es `50 × 50 × 10 m`, forma `15 × 14 × 55`
+  (11.550 bloques), origen local provisional `(242225, 8196250, 2990) m`.
+  P2 es decisión conceptual aprobada para el alcance preliminar; cobertura y
+  reproducibilidad verificadas, optimización del tamaño/origen no demostrada.
+  Los 50 m horizontales son comparables con medianas observadas, pero la
+  cobertura es heterogénea; 10 m en Z es discretización adoptada sin
+  justificación vertical formal suficiente.
 - La fuente `data/raw/topography/Topopl.csv` contiene 218.112 puntos con campos
-  `PID`, `X`, `Y`, `Z`. La cobertura del grid está comprobada en X/Y y la
-  intersección vertical en Z.
+  `PID`, `X`, `Y`, `Z`. Los 210 centros XY del grid obtuvieron elevación TIN
+  finita y la intersección vertical en Z se comprobó. Esto no significa que
+  toda la nube raw esté dentro del grid: 69.266 puntos están dentro del
+  rectángulo XY del modelo y 148.846 fuera.
+- `Topopl.csv` está integrado técnicamente, pero no aparece en el
+  `release_manifest.json` original. Existe una referencia documental/histórica
+  de compatibilidad espacial indicada por el docente; no acredita procedencia
+  oficial del archivo.
+- CRS/EPSG de `Topopl.csv` y datum o referencia vertical de `Z`: NO
+  DOCUMENTADOS. El release describe coordenadas/cartesianas locales en metros,
+  pero no existe evidencia suficiente para asignar formalmente esa referencia
+  a Topopl. No se infieren UTM, WGS84, PSAD56, zona ni transformación; la
+  definición de `collar.csv.z` no establece el datum de la columna Z topográfica.
 - La interpolación usa triangulación Delaunay (TIN) e interpolación lineal
   para obtener `topo_z_m` en los 210 centros XY únicos del grid de
   `50 × 50 × 10 m` (forma `15 × 14 × 55`, 11.550 bloques). Si una consulta no
@@ -56,7 +75,10 @@ topográfico.
 
 El inventario verificado reporta 218.112 registros, rango Z de 3120.858516 a
 3596.0 m y cobertura que intersecta el intervalo vertical del grid (2990–3540
-m). El CRS/EPSG y datum vertical no están documentados formalmente.
+m). Los 210 centros XY únicos del grid están cubiertos por el TIN. Dentro del
+rectángulo XY del grid se encuentran 69.266 puntos topográficos y 148.846 fuera;
+la integración no afirma que toda la nube raw esté contenida. El CRS/EPSG de
+Topopl y el datum vertical de Z no están documentados formalmente.
 
 ## 5. Outputs
 

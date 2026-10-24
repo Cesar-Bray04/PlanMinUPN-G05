@@ -2,7 +2,8 @@
 
 ## Estado final vigente
 
-- **HEAD técnico final:** `a70b546` en `feature/m01b-block-model`.
+- **HEAD actual/documental:** `207ba75` en `feature/m01b-block-model`.
+- **Commit técnico del modelo final:** `a70b546`.
 - **Suite técnica final:** `41 passed`.
 - **P4, P5 y P6:** `VERIFIED` dentro del alcance aprobado y descrito en este
   documento.
@@ -17,8 +18,14 @@
   vecinos; cada bloque asignado conserva IDs y soporte de intervalos fuente.
 - `lith_code`/`lith_status` son independientes de `topo_status`. La tabla
   cruzada litología-topografía fue revisada; los 7 casos `OVB` con
-  `topo_status=AIR` se conservan como observaciones cautelares, sin recodificar.
+  `topo_status=AIR` se conservan como casos cautelares revisados, sin
+  recodificación automática.
   `AIR` litológico no equivale a `topo_status=AIR`.
+- La cobertura topográfica que sustenta la integración se refiere a los 210
+  centros XY del grid con elevación TIN finita, no a la totalidad de la nube
+  raw. `Topopl.csv` no figura en el `release_manifest.json` original; su
+  integración computacional y la referencia histórica de compatibilidad
+  espacial indicada por el docente no acreditan procedencia oficial.
 - P6 corresponde a `outputs/figures/m01b_block_model_geology_topography.html`:
   visualización integrada con superficie topográfica, bloques, sondajes,
   intervalos litológicos, 76 contactos, `UNKNOWN/UNASSIGNED`, controles

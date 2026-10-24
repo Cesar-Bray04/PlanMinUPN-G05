@@ -3,7 +3,8 @@
 ## Estado vigente
 
 - **Rama:** `feature/m01b-block-model`.
-- **HEAD técnico final:** `a70b546` (`feat: integrate topography and geological validation into M01B block model`).
+- **HEAD actual/documental:** `207ba75`.
+- **Commit técnico del modelo final:** `a70b546` (`feat: integrate topography and geological validation into M01B block model`).
 - **Árbol de trabajo:** limpio después del commit técnico final.
 - **Suite completa:** `41 passed`.
 - **`git diff --check`:** limpio antes del commit técnico final.
@@ -14,7 +15,7 @@
 
 | ID | Estado | Evidencia y límite |
 |---|---|---|
-| B00 | `VERIFIED` | Rama y HEAD indicados arriba; árbol de trabajo limpio después del commit técnico final. |
+| B00 | `VERIFIED` | Rama `feature/m01b-block-model`, HEAD actual/documental `207ba75`; cierre técnico del modelo en `a70b546` y árbol limpio después de ese commit. |
 | B01 | `VERIFIED` | Se mantienen las verificaciones registradas de fuentes, manifiesto, integridad, campos y unidades. La fuente topográfica está disponible y se trata específicamente en B09. |
 | B02 | `VERIFIED` | La ejecución documentada del validador reportó 4 hallazgos `INFO` y ningún `ERROR` o `WARNING`; las pruebas de la suite final pasaron. |
 | B03 | `VERIFIED` | Se generaron trayectorias y posiciones XYZ utilizables: 44 sondajes/313 estaciones y 120 intervalos litológicos posicionados; las pruebas de la suite final pasaron. |
@@ -29,11 +30,14 @@
 ### Geometría y resultados vigentes
 
 - **Grid preliminar:** bloques de `50 × 50 × 10 m`; dimensiones `15 × 14 × 55`, total `11.550` bloques. El origen documentado es provisional, no una referencia minera oficial.
+- **P2:** decisión conceptual aprobada para el alcance preliminar; reproducibilidad y cobertura verificadas, optimización del tamaño/origen no demostrada. Para el modelo categórico preliminar del alcance T2 se adopta una malla reproducible de 50 × 50 × 10 m, con forma 15 × 14 × 55 (11,550 bloques) y origen local provisional (242225, 8196250, 2990) m. La dimensión horizontal de 50 m se eligió como escala conceptual comparable con las medianas observadas de distancia al collar vecino más cercano (55.90 m) y de espaciamiento por sección (54.90 m; mediana de las medianas por sección: 58.77 m); la cobertura es heterogénea y este análisis no constituye variografía ni demuestra un tamaño óptimo. La dimensión vertical de 10 m se conserva como discretización adoptada, pero no está justificada formalmente por el espaciamiento vertical observado. El origen se obtuvo por redondeo inferior respecto del cero numérico local con incrementos de 25/25/10 m para la candidata conceptual anterior y se retuvo al pasar a 50/50/10 m; no es una referencia oficial.
 - **Clasificación topográfica:** `ROCK` 6.853; `AIR` 4.493; `PARTIAL` 204. Es una clasificación computacional por elevación interpolada en XY, no una fracción volumétrica.
+- **Cobertura espacial verificada:** 44/44 collars y 313/313 estaciones de trayectoria están dentro del grid; los 120 intervalos litológicos contabilizan `11,574.785091049 m` dentro y `0 m` fuera; los 210 centros XY tienen elevación TIN finita. Esto no implica que toda la nube topográfica raw esté dentro: 69.266 puntos están en el rectángulo XY del grid y 148.846 fuera.
+- **Procedencia topográfica:** `Topopl.csv` está integrado técnicamente (218.112 registros `PID/X/Y/Z`), pero no aparece en el `release_manifest.json` original. Hay referencia documental/histórica de compatibilidad espacial indicada por el docente, no prueba de procedencia oficial.
 - **Validación geológica observada:** 120 intervalos litológicos posicionados y 76 contactos; `11,574.785091049 m` contabilizados dentro de la malla y `0 m` fuera. Hay 978 bloques con intersección positiva, 68 conflictos y 10.504 bloques sin soporte. Conflictos y bloques sin soporte permanecen `UNKNOWN/UNASSIGNED`.
 - **Visualización P6:** HTML 3D integrado con topografía, bloques, sondajes, intervalos litológicos, contactos y sección X-Z.
 - **Gates vigentes:** B09, P3, P4, P5 y P6 `VERIFIED` en el alcance computacional/documental descrito. P4/P5 verifican coherencia y trazabilidad respecto de observaciones; no certifican un modelo geológico profesional.
-- No están documentados CRS/EPSG ni datum vertical. No se infiere el significado geológico de `OVB`, `BRX`, `POR`, `VOL` o `AIR`.
+- CRS/EPSG de `Topopl.csv` y datum/referencia vertical de `Z`: NO DOCUMENTADOS. El release describe coordenadas/cartesianas locales en metros, pero no hay evidencia suficiente para asignar formalmente ese CRS a Topopl; no se infieren UTM, WGS84, PSAD56, zona ni transformación. No se infiere el significado geológico de `OVB`, `BRX`, `POR`, `VOL` o `AIR`.
 
 ## HISTÓRICO — diagnóstico de base B00–B10 anterior
 
@@ -151,15 +155,21 @@ conservados como historial; no describen el estado técnico final vigente.
 ## Estado vigente al cierre
 
 El resultado actual coincide con el estado vigente declarado al inicio de este
-documento: rama `feature/m01b-block-model`, HEAD `a70b546`, árbol limpio tras el
-commit técnico final y suite completa con `41 passed`. `git diff --check` quedó
+documento: rama `feature/m01b-block-model`, HEAD actual/documental `207ba75` y
+commit técnico del modelo final `a70b546`. El árbol quedó limpio después del
+commit técnico y la suite completa tuvo `41 passed`. `git diff --check` quedó
 limpio antes de ese commit.
+
+P2 permanece como decisión conceptual aprobada para el alcance preliminar;
+reproducibilidad y cobertura están verificadas, pero no la optimización del
+tamaño ni del origen. La cobertura topográfica indicada arriba aplica a los
+centros XY del grid, no a toda la nube raw.
 
 | Estado actual | Resultado |
 |---|---|
-| B00–B10 | B00 `VERIFIED`; B01 `VERIFIED`; B02 `VERIFIED`; B03 `VERIFIED`; B04 `VERIFIED` (capacidad histórica; no activa en HEAD); B05 `VERIFIED`; B06 `VERIFIED` (auditoría observacional); B07 `VERIFIED`; B08 `VERIFIED` (compositing reproducible); B09 `VERIFIED`; B10 `VERIFIED`. |
+| B00–B10 | B00 `VERIFIED` (HEAD actual/documental `207ba75`; commit técnico del modelo `a70b546`); B01 `VERIFIED`; B02 `VERIFIED`; B03 `VERIFIED`; B04 `VERIFIED` (capacidad histórica; no activa en HEAD); B05 `VERIFIED`; B06 `VERIFIED` (auditoría observacional); B07 `VERIFIED`; B08 `VERIFIED` (compositing reproducible); B09 `VERIFIED`; B10 `VERIFIED`. |
 | P3 / P4 / P5 / P6 | `VERIFIED` dentro del alcance técnico y computacional indicado. |
-| Topografía | `Topopl.csv`, 218.112 puntos `PID/X/Y/Z`; cobertura completa del grid en X/Y e intersección en Z. Conteos: `ROCK` 6.853, `AIR` 4.493, `PARTIAL` 204. |
+| Topografía | `Topopl.csv`, 218.112 puntos `PID/X/Y/Z`; los 210 centros XY del grid tienen elevación TIN finita y la intersección vertical se comprobó en Z. No significa cobertura de toda la nube raw: 69.266 puntos dentro del rectángulo XY del grid y 148.846 fuera. Conteos: `ROCK` 6.853, `AIR` 4.493, `PARTIAL` 204. |
 | Geología | 120 intervalos posicionados; 76 contactos; 11,574.785091049 m dentro y 0 m fuera; 978 bloques con intersección positiva, 68 conflictos y 10.504 sin soporte. Conflictos/sin soporte: `UNKNOWN/UNASSIGNED`. |
 | P6 | HTML 3D integrado con topografía, bloques, sondajes, intervalos, contactos y sección X-Z. |
 | Límites | Sin CRS/EPSG ni datum vertical documentados; sin significado inferido para los códigos; validación contra observaciones, no certificación profesional externa. |
