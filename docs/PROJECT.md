@@ -6,7 +6,8 @@
 - **Grupo:** G05
 - **Dataset:** Santa Elena / DS05 / EXP03
 - **Rama:** `feature/m01b-block-model`
-- **HEAD actual/documental:** `207ba75`
+- **HEAD actual/documental:** `66e1ae3`
+- **Commit documental anterior:** `207ba75`
 - **Commit técnico del modelo final:** `a70b546`
 
 ## Propósito
@@ -25,6 +26,15 @@ por el manifiesto del release.
 - Asignación litológica por intersección 3D de intervalos observados.
 - Validación computacional y observacional.
 - Visualización 3D integrada.
+
+El M01B queda técnicamente implementado y reproducible para el alcance
+académico T2, con 41 pruebas aprobadas. La integración de topografía, litología
+y visualización 3D está operativa. Persisten limitaciones explícitas de fuente:
+CRS/EPSG y datum vertical de `Topopl.csv` no documentados, significados oficiales
+de códigos litológicos no disponibles y procedencia administrativa de `Topopl`
+no acreditada por el manifiesto original. P2 es una decisión conceptual
+preliminar; P3–P6 están verificados únicamente dentro del alcance
+computacional/observacional descrito.
 
 ## Grid final
 
@@ -55,7 +65,8 @@ optimización del tamaño ni del origen.
 - **Compositing:** 5.830 composites reproducibles byte por byte desde 5.803
   assays fuente; derivado: `data/processed/m01b/composites.csv`.
 - **Topografía:** 218.112 puntos en `data/raw/topography/Topopl.csv`, campos
-  `PID`, `X`, `Y`, `Z`; los 210 centros XY del grid tienen elevación TIN finita.
+  `PID`, `X`, `Y`, `Z`; los 210/210 centros XY del grid tienen elevación TIN
+  finita y los 11.550 bloques reciben clasificación topográfica computacional.
   Esto no significa que toda la nube raw esté dentro del grid: 69.266 puntos
   quedan en su rectángulo XY y 148.846 fuera. Los 44 collars y 313 estaciones
   de trayectoria también están dentro; los intervalos litológicos contabilizan
@@ -76,14 +87,20 @@ sección X-Z.
 
 ## Limitaciones
 
-- CRS/EPSG de `Topopl.csv` y datum/referencia vertical de `Z`: no documentados.
+- CRS/EPSG de `Topopl.csv`: NO DOCUMENTADO EN LAS FUENTES DISPONIBLES.
+  Datum/referencia vertical de `Topopl.csv.Z`: NO DOCUMENTADO EN LAS FUENTES
+  DISPONIBLES.
   No se infieren UTM, WGS84, PSAD56, zona ni transformación. El release describe
   coordenadas/cartesianas locales en metros, pero no hay evidencia suficiente
   para asignar formalmente ese CRS a Topopl.
-- No está documentado el significado oficial de `OVB`, `BRX`, `POR`, `VOL` y
-  `AIR`; se conservan como códigos observados.
+- Los únicos códigos litológicos observados son `OVB`, `BRX`, `POR`, `VOL` y
+  `AIR`, descritos únicamente como `Observed lithology code`; no se expanden ni
+  interpretan. `lith_code=AIR` no equivale a `topo_status=AIR`.
 - La validación geológica verifica coherencia con intervalos y contactos
-  observados del repositorio; no es certificación profesional externa.
+  observados del repositorio; no es certificación profesional externa, no
+  demuestra continuidad geológica entre sondajes y no es validación operacional.
+  Los 10.504 bloques sin soporte resultan de la regla de asignación conservadora
+  y no son por sí solos un error del algoritmo.
 - `Topopl.csv` no figura en el `release_manifest.json` original. Existe una
   referencia documental/histórica de compatibilidad espacial indicada por el
   docente, pero no acredita la procedencia oficial del archivo.

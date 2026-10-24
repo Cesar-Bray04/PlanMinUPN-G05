@@ -1,8 +1,12 @@
 ## ESTADO FINAL / CONTINUIDAD
 
-- **HEAD actual/documental:** `207ba75` en la rama `feature/m01b-block-model`.
+- **HEAD actual/documental:** `66e1ae3` en la rama `feature/m01b-block-model`.
+- **Commit documental anterior:** `207ba75`.
 - **Commit técnico del modelo final:** `a70b546`.
 - **Suite técnica final:** `41 passed`.
+- **Estado base:** `BASE_ACCEPTED_WITH_LIMITATIONS`, suficiente para continuar
+  el ejercicio académico; no implica que todas las fuentes/metadatos estén
+  completos.
 - **P2 vigente:** decisión conceptual aprobada para el alcance preliminar;
   reproducibilidad y cobertura verificadas, optimización del tamaño/origen no
   demostrada. El grid de `50 × 50 × 10 m` usa origen local provisional
@@ -16,8 +20,14 @@
   `IMP-003_m01b_topography_integration.md`.
 - La validación de intervalos/contactos por intersección 3D y la visualización
   3D integrada se documentan en `IMP-004_m01b_geological_validation.md`.
-- No se infieren CRS/EPSG, datum vertical ni significado oficial de códigos
-  litológicos: no están documentados formalmente.
+- CRS/EPSG y datum/referencia vertical de `Topopl.csv`: NO DOCUMENTADOS EN LAS
+  FUENTES DISPONIBLES. No se infieren referencias ni transformaciones. Los
+  códigos litológicos se describen únicamente como `Observed lithology code`;
+  no se les atribuye significado oficial.
+- El estado final es un modelo categórico preliminar reproducible para el
+  alcance académico T2, no una selección de grid optimizada ni una certificación
+  geológica u operacional. La topografía adicional no está incluida en el
+  manifiesto original del release.
 
 ## HISTÓRICO — Baseline previo a M01B
 

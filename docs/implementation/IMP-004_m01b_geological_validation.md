@@ -2,14 +2,16 @@
 
 ## Estado final vigente
 
-- **HEAD actual/documental:** `207ba75` en `feature/m01b-block-model`.
+- **HEAD actual/documental:** `66e1ae3` en `feature/m01b-block-model`.
+- **Commit documental anterior:** `207ba75`.
 - **Commit técnico del modelo final:** `a70b546`.
 - **Suite técnica final:** `41 passed`.
 - **P4, P5 y P6:** `VERIFIED` dentro del alcance aprobado y descrito en este
   documento.
 - **Alcance:** coherencia y trazabilidad respecto de intervalos litológicos y
   contactos observados en el repositorio; no es certificación profesional
-  externa ni validación operacional.
+  externa ni validación operacional, y no demuestra continuidad geológica entre
+  sondajes.
 - La validación contabilizó 120 intervalos posicionados y 76 contactos;
   `11,574.785091049 m` dentro de la malla y `0 m` fuera. Se asignaron 978 bloques
   con intersección positiva; 68 conflictos y 10.504 bloques sin soporte
@@ -25,12 +27,14 @@
   centros XY del grid con elevación TIN finita, no a la totalidad de la nube
   raw. `Topopl.csv` no figura en el `release_manifest.json` original; su
   integración computacional y la referencia histórica de compatibilidad
-  espacial indicada por el docente no acreditan procedencia oficial.
+  espacial indicada por el docente no acreditan procedencia oficial. CRS/EPSG y
+  datum vertical están NO DOCUMENTADOS EN LAS FUENTES DISPONIBLES.
 - P6 corresponde a `outputs/figures/m01b_block_model_geology_topography.html`:
   visualización integrada con superficie topográfica, bloques, sondajes,
   intervalos litológicos, 76 contactos, `UNKNOWN/UNASSIGNED`, controles
   separados de litología/topografía, sección X-Z y hover con datos de soporte
-  para auditoría.
+  para auditoría. Es una visualización diagnóstica/interactiva, no modelo de
+  recursos, reservas, validación certificada ni modelo operacional.
 - Pruebas de la etapa geológica: 13 focalizadas aprobadas; suite técnica final:
   41 aprobadas. `git diff --check` quedó limpio antes del commit técnico final.
 - Se mantienen las limitaciones de IMP-003: CRS/EPSG y datum vertical no
@@ -191,7 +195,7 @@ el derivado/HTML de topografía. No hubo commit ni push.
   no se presentan como discrepancias resueltas.
 - **P6 — `VERIFIED`** para el artefacto diagnóstico integrado, controles
   litológicos/topográficos y sección inspeccionada. No implica validación
-  operacional ni externa.
+  operacional ni externa, ni constituye modelo de recursos o reservas.
 
 Permanecen vigentes las limitaciones de IMP-003: CRS/EPSG y datum vertical no
 documentados, superficie representada mediante elevación interpolada en el

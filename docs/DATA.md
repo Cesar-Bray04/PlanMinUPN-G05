@@ -14,7 +14,7 @@ documentados en el repositorio.
 | `data/raw/lithology.csv` | 120 | `hole_id`, `dataset_id`, `project_id`, `campaign_id`, `from_m`, `to_m`, `length_m`, `lith_code` | `from_m/to_m/length_m`: m |
 | `data/raw/density.csv` | 459 | `density_sample_id`, `hole_id`, `dataset_id`, `project_id`, `campaign_id`, `from_m`, `to_m`, `length_m`, `density_t_m3` | `from_m/to_m/length_m`: m; `density_t_m3`: t/m³ |
 | `data/raw/alteration.csv` | 0 | Fuente oficial vacía; conserva su esquema, sin registros | No aplicable |
-| `data/raw/topography/Topopl.csv` | 218.112 | `PID`, `X`, `Y`, `Z` | Coordenadas/elevación expresadas en m; CRS/EPSG y datum vertical no documentados formalmente |
+| `data/raw/topography/Topopl.csv` | 218.112 | `PID`, `X`, `Y`, `Z` | Coordenadas/elevación expresadas en m; CRS/EPSG y datum vertical NO DOCUMENTADOS EN LAS FUENTES DISPONIBLES |
 
 `Topopl.csv` está integrado técnicamente y es utilizable para la cobertura
 computacional del grid, pero no aparece en el `data/raw/release_manifest.json`
@@ -22,10 +22,10 @@ original. Hay una referencia documental/histórica de compatibilidad espacial
 indicada por el docente; no debe presentarse como prueba de procedencia oficial
 del archivo ni como inclusión en el release manifest.
 
-Los códigos litológicos observados en `lith_code` son `OVB`, `BRX`, `POR`,
-`VOL` y `AIR`. El repositorio no documenta su significado oficial y se
-conservan literalmente. El código literal `AIR` no equivale a
-`topo_status=AIR`.
+Los únicos códigos litológicos observados en `lith_code` son `OVB`, `BRX`,
+`POR`, `VOL` y `AIR`; la fuente los identifica únicamente como `Observed
+lithology code`. No se expanden ni interpretan y se conservan literalmente. El
+código literal `lith_code=AIR` no equivale a `topo_status=AIR`.
 
 ### Cobertura topográfica comprobada
 
@@ -43,9 +43,10 @@ rectángulo XY del modelo y 148.846 fuera.
 
 El release documenta coordenadas/cartesianas locales en metros, pero no hay
 evidencia suficiente para asignar formalmente esa referencia a `Topopl.csv`.
-Su CRS/EPSG es NO DOCUMENTADO; no se infieren UTM, WGS84, PSAD56, zona ni
-transformación. El datum o referencia vertical de `Topopl.csv.Z` también es NO
-DOCUMENTADO; la descripción de `collar.csv.z` no permite inferirlo.
+Su CRS/EPSG es NO DOCUMENTADO EN LAS FUENTES DISPONIBLES; no se infieren UTM,
+WGS84, PSAD56, zona, EPSG ni transformación. El datum o referencia vertical de
+`Topopl.csv.Z` también es NO DOCUMENTADO EN LAS FUENTES DISPONIBLES; la
+descripción de `collar.csv.z` no permite inferirlo.
 
 ## Derivados principales
 
@@ -95,7 +96,9 @@ adoptada, sin justificación vertical formal suficiente.
   la malla y 0 m fuera.
 - 978 bloques asignados con soporte/intersección positiva; 68 conflictos y
   10.504 bloques sin soporte. Conflictos y falta de soporte permanecen
-  `UNKNOWN/UNASSIGNED`.
+  `UNKNOWN/UNASSIGNED`. La cantidad sin soporte es consecuencia de la regla
+  conservadora (solo asigna con intersección y soporte concordante), no debe
+  interpretarse por sí sola como error del algoritmo.
 
 La validación geológica se limita a coherencia y trazabilidad contra los
 intervalos/contactos observados del repositorio; no constituye certificación
@@ -110,5 +113,5 @@ profesional externa.
   los valores observados literalmente.
 - No confundir el código litológico literal `AIR` con el estado topográfico
   `topo_status=AIR`, que es una clasificación independiente.
-- No afirmar CRS/EPSG ni datum vertical, porque no están documentados
-  formalmente.
+- CRS/EPSG y datum vertical de `Topopl.csv` están NO DOCUMENTADOS EN LAS
+  FUENTES DISPONIBLES; no asignar referencia con base en `collar.csv.z`.

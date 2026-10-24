@@ -2,11 +2,13 @@
 
 ## Estado final vigente
 
-- **HEAD actual/documental:** `207ba75` en `feature/m01b-block-model`.
+- **HEAD actual/documental:** `66e1ae3` en `feature/m01b-block-model`.
+- **Commit documental anterior:** `207ba75`.
 - **Commit técnico del modelo final:** `a70b546`.
 - **Suite técnica final:** `41 passed`.
-- **B09:** `VERIFIED`.
-- **P3:** `VERIFIED` dentro del alcance computacional documentado.
+- **B09:** `VERIFIED` dentro del alcance computacional/topográfico implementado.
+- **P3:** `VERIFIED` únicamente para integración, interpolación y clasificación
+  topográfica computacionales; no valida CRS/EPSG ni datum vertical.
 - El grid de referencia de P3 es `50 × 50 × 10 m`, forma `15 × 14 × 55`
   (11.550 bloques), origen local provisional `(242225, 8196250, 2990) m`.
   P2 es decisión conceptual aprobada para el alcance preliminar; cobertura y
@@ -15,8 +17,9 @@
   cobertura es heterogénea; 10 m en Z es discretización adoptada sin
   justificación vertical formal suficiente.
 - La fuente `data/raw/topography/Topopl.csv` contiene 218.112 puntos con campos
-  `PID`, `X`, `Y`, `Z`. Los 210 centros XY del grid obtuvieron elevación TIN
-  finita y la intersección vertical en Z se comprobó. Esto no significa que
+  `PID`, `X`, `Y`, `Z`. Los 210/210 centros XY del grid obtuvieron elevación TIN
+  finita, los 11.550 bloques reciben clasificación topográfica y la intersección
+  vertical en Z se comprobó. Esto no significa que
   toda la nube raw esté dentro del grid: 69.266 puntos están dentro del
   rectángulo XY del modelo y 148.846 fuera.
 - `Topopl.csv` está integrado técnicamente, pero no aparece en el
@@ -24,7 +27,8 @@
   de compatibilidad espacial indicada por el docente; no acredita procedencia
   oficial del archivo.
 - CRS/EPSG de `Topopl.csv` y datum o referencia vertical de `Z`: NO
-  DOCUMENTADOS. El release describe coordenadas/cartesianas locales en metros,
+  DOCUMENTADOS EN LAS FUENTES DISPONIBLES. El release describe
+  coordenadas/cartesianas locales en metros,
   pero no existe evidencia suficiente para asignar formalmente esa referencia
   a Topopl. No se infieren UTM, WGS84, PSAD56, zona ni transformación; la
   definición de `collar.csv.z` no establece el datum de la columna Z topográfica.
@@ -39,7 +43,8 @@
 - Esta clasificación compara la elevación interpolada en el centro XY con
   `z_min`/`z_max`; no calcula la fracción volumétrica exacta sobre la huella
   completa del bloque.
-- CRS/EPSG y datum vertical no están documentados formalmente.
+- CRS/EPSG y datum vertical de `Topopl.csv` están NO DOCUMENTADOS EN LAS
+  FUENTES DISPONIBLES.
 - La integración geológica y la visualización 3D final se documentan en
   `IMP-004_m01b_geological_validation.md`.
 
