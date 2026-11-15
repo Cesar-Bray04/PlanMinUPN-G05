@@ -23,3 +23,10 @@ Thumbs.db
 
 # Generated outputs can be versioned selectively.
 # Do not ignore data/raw globally: source datasets may be distributed by the docente.
+
+# Progreso local individual Kai
+.kai_local/
+/.kai_solicitud_g05.json
+/.kai_solicitud_g05_v2.json
+/.kai_solicitud_recorrido_g05.json
+/.kai_solicitud_ficha_g05.json

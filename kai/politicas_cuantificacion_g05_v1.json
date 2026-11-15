@@ -1,0 +1,16 @@
+{
+  "policy_id": "G05-QUANTIFICATION-01",
+  "version": 1,
+  "basis": "Implementación académica explícita complementaria a PT-01; no modifica sus parámetros",
+  "grade_support": "Solo compósitos completos de 2 m; conservar residuales en QA sin mezclarlos como soporte equivalente",
+  "independence": "No seleccionar dos compósitos que compartan ensayo de origen en una misma estimación",
+  "domain": "Igualdad literal de código litológico preliminar; no acredita continuidad ni significado oficial del código",
+  "density_contact": "Usar medición íntegra dentro de un único intervalo litológico; si cruza contacto, conservar y excluir de IDW",
+  "volume": "Integración de triángulos TIN lineales recortados a huella XY y planos Z del bloque; conservar estado topográfico heredado por separado",
+  "coordinate_assumption": "Se conserva la compatibilidad local usada por M01; CRS y datum topográfico siguen sin acreditarse",
+  "grade_support_interpretation": "Estimación puntual en centro usada como proxy académico de bloque, sin corrección de soporte volumétrico",
+  "s12_link_rule": "G05-ALLOC-01",
+  "s12_allocation": "Cada bloque ORE_CANDIDATE participa proporcionalmente a su tonelaje en hasta 66000 t de tratamiento; cada WASTE_CANDIDATE participa en hasta 44000 t de movimiento. Cada clase se limita a su inventario sin suplir faltantes de la otra. Es una asignación fraccionaria de inventario para comparar A/B, sin orden ni accesibilidad física inferidos",
+  "s12_budget": "PT-01 0.60 es fracción presupuestaria objetivo; reportar por separado fracción asignada según inventario",
+  "s12_costs": "Costos variables por toneladas asignadas; CAPEX de flota para meta PT-01. Reparto contable de CAPEX proporcional a movimiento, sin valor económico de bloque"
+}
