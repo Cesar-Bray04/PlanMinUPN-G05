@@ -1,5 +1,11 @@
 # PlanMinUPN
 
+## Kai G05 R6 en esta rama
+
+Recorrido teórico implementado desde exploración hasta S11 y S12, reutilizando el piloto corregido R5.3.1. Abre [Inicio Kai R6](INICIO_KAI_R6.md) para usarlo, [el visor G05](index.html) para observar el modelo y [la guía visual](docs/guia_visual_estimacion.html) para estudiar.
+
+La ruta V2 conserva continuidad local separada del historial V1. IMP-008 incorpora estimación IDW² G05, volumen bajo TIN y escenarios A/B, con productos S11/S12 verificados y aplicación individual de 26 observaciones separada de la ficha E1 de 21. Los datos y algoritmos preliminares permanecen intactos. Los candidatos académicos no acreditan reservas profesionales. Consulta el [registro IMP-008](docs/implementation/IMP-008_g05_recursos_reservas_academicos.md) y el [informe de integración local](docs/INTEGRACION_LOCAL_IMP008_20261114.md) para evidencia y límites; [IMP-005](docs/implementation/IMP-005_kai_teoria_s11_s12.md) conserva la historia de la etapa teórica.
+
 Repositorio base del curso **Planeamiento de Minado — Ingeniería de Minas, UPN, 2026-2**.
 
 Este repositorio es el baseline que los equipos de estudiantes utilizarán para desarrollar su proyecto de planeamiento minero con **Python + GitHub + PyCharm + agentes de Inteligencia Artificial**.

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Santa Elena · G05 · PlanMinUPN 2.0</title>
+  <meta name="description" content="Recorrido visual del modelo preliminar de bloques G05 Santa Elena, DS05 EXP03.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/r4.css">
+  <link rel="stylesheet" href="assets/theory_entry.css">
+  <script src="datos/resumen.js" defer></script>
+  <script src="assets/app.js" defer></script>
+  <script src="datos/resultados_g05.js" defer></script>
+  <script src="assets/missions_entry.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación del recorrido">
+      <div class="brand">
+        <div class="brand-image"><img src="assets/L3.png" alt="DrillStone"></div>
+        <span class="brand-caption">PLANMINUPN <strong>2.0</strong></span>
+      </div>
+      <div class="course-label">PLANEAMIENTO DE MINADO <span>UPN · 2026-2</span></div>
+      <div class="nav-heading">RECORRIDO G05</div>
+      <nav id="main-nav">
+        <a href="#proyecto" data-target="proyecto"><span class="nav-number">01</span><span>Nuestro proyecto</span></a>
+        <a href="#datos" data-target="datos"><span class="nav-number">02</span><span>Nuestros datos</span></a>
+        <a href="#compositado" data-target="compositado"><span class="nav-number">03</span><span>Compositado</span></a>
+        <a href="#bloques" data-target="bloques"><span class="nav-number">04</span><span>Modelo de bloques</span></a>
+        <a href="#tresd" data-target="tresd"><span class="nav-number">05</span><span>Vista 3D</span></a>
+        <a href="#decisiones" data-target="decisiones"><span class="nav-number">06</span><span>Decisiones</span></a>
+        <a href="#estado" data-target="estado"><span class="nav-number">07</span><span>Estado actual</span></a>
+        <a href="#teoria" data-target="teoria"><span class="nav-number">08</span><span>Métodos y teoría S11</span></a>
+        <a href="#s11" data-target="s11"><span class="nav-number">09</span><span>S11 · Recursos académico</span></a>
+        <a href="#s12" data-target="s12"><span class="nav-number">10</span><span>S12 · Reservas académico</span></a>
+      </nav>
+      <a class="text-link" href="docs/guia_visual_estimacion.html#metodos" target="_blank" rel="noopener">Abrir la guía visual completa ↗</a>
+      <div class="sidebar-foot">
+        <span class="small-dot"></span>
+        <span>Resultados del grupo, sin cifras DS00</span>
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <header class="topbar">
+        <div class="breadcrumb">G05 <span>/</span> SANTA ELENA <span>/</span> MODELO PRELIMINAR</div>
+        <div class="topbar-right"><span class="pill pill-neutral">DS05 · EXP03</span><span class="top-status"><i></i> PILOTO DOCENTE</span></div>
+      </header>
+
+      <section id="proyecto" class="screen" aria-labelledby="proyecto-title">
+        <div class="eyebrow">01 / NUESTRO PROYECTO</div>
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="pill pill-warm">GRUPO 05 · SANTA ELENA</span>
+            <h1 id="proyecto-title">De los sondajes a un<br><em>modelo que podemos leer.</em></h1>
+            <p>Construimos un modelo de bloques categórico y preliminar a partir del release académico <strong>DS05 / EXP03</strong>. Aquí veremos qué proviene de observaciones, qué se calculó y dónde aún falta conocimiento.</p>
+            <div class="hero-actions"><a class="button primary" href="#datos">Explorar nuestros datos <span aria-hidden="true">→</span></a><a class="text-link" href="#estado">Ver el estado real ↗</a><a class="text-link" href="#teoria">Estudiar los métodos de estimación ↗</a></div>
+          </div>
+          <div class="hero-visual hero-drill-visual" aria-label="Vista tridimensional de las 44 trayectorias de sondaje de G05">
+            <img class="hero-drill-poster" src="assets/sondajes_3d_g05.png" alt="Perspectiva 3D de los 44 sondajes de Santa Elena, coloreados por campaña">
+            <iframe id="hero-drill-frame" class="hero-drill-frame" src="visor/sondajes_3d.html" title="Sondajes 3D interactivos de G05; arrastra para girar y usa la rueda para acercar" loading="eager"></iframe>
+            <div class="hero-drill-head"><strong>SONDAJES 3D · G05</strong><span>44 TRAYECTORIAS</span></div>
+            <div class="hero-drill-foot"><span><i class="campaign-dot camp-one"></i>Camp. 01 · 16</span><span><i class="campaign-dot camp-two"></i>Camp. 02 · 20</span><span><i class="campaign-dot camp-three"></i>Camp. 03 · 8</span></div>
+            <span class="hero-drill-note">Trayectorias del grupo en X, Y, Z · arrastra para girar</span>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat"><span class="stat-icon">⌁</span><span class="stat-value" data-value="exploration.holes">44</span><span class="stat-label">sondajes observados</span></article>
+          <article class="stat"><span class="stat-icon">≋</span><span class="stat-value" data-value="compositing.total">5830</span><span class="stat-label">compósitos generados</span></article>
+          <article class="stat"><span class="stat-icon">▦</span><span class="stat-value" data-value="model.block_count">11550</span><span class="stat-label">bloques geométricos</span></article>
+          <article class="stat"><span class="stat-icon">◇</span><span class="stat-value" data-value="model.lithology.ASSIGNED">978</span><span class="stat-label">con código litológico asignado</span></article>
+        </div>
+        <div class="section-kicker">CÓMO LLEGAMOS AQUÍ</div>
+        <div class="journey" role="list">
+          <div role="listitem"><b>01</b><span>Exploración</span><small>Observaciones</small></div>
+          <div role="listitem"><b>02</b><span>Trayectorias</span><small>Posición X, Y, Z</small></div>
+          <div role="listitem"><b>03</b><span>Compósitos</span><small>Soporte de 2 m</small></div>
+          <div role="listitem"><b>04</b><span>Bloques</span><small>50 × 50 × 10 m</small></div>
+          <div role="listitem"><b>05</b><span>Topografía y códigos</span><small>Diagnóstico</small></div>
+        </div>
+        <div class="notice"><strong>Momento E1.</strong> Estas pantallas conservan el corte del modelo preliminar usado por la ficha de 21 observaciones. En ese corte no hay leyes, densidad ni tonelaje estimados por bloque. Después del cierre E1 y la teoría, abre S11 y S12 para consultar sus generaciones cuantitativas.</div>
+      </section>
+
+      <section id="datos" class="screen" aria-labelledby="datos-title" hidden>
+        <div class="eyebrow">02 / NUESTROS DATOS</div>
+        <h1 id="datos-title">Primero, las <em>observaciones.</em></h1>
+        <p class="lead">Tres campañas aportan sondajes, ensayes e intervalos litológicos. La densidad que aparece aquí es una <strong>medición en muestras</strong>, no una propiedad estimada para cada bloque.</p>
+        <div class="metric-strip">
+          <div><strong data-value="exploration.holes">44</strong><span>sondajes</span></div><div><strong data-value="exploration.survey">313</strong><span>estaciones survey</span></div><div><strong data-value="exploration.assays">5803</strong><span>intervalos de ensaye</span></div><div><strong data-value="exploration.lithology_intervals">120</strong><span>intervalos litológicos</span></div><div><strong data-value="exploration.density_observations">459</strong><span>densidades observadas</span></div>
+        </div>
+        <div class="two-columns">
+          <article class="panel"><div class="panel-heading"><div><span class="overline">COBERTURA POR CAMPAÑA</span><h2>Sondajes y ensayes</h2></div><span class="pill pill-cool">DATOS FUENTE</span></div><div id="campaign-chart" class="bar-chart" aria-label="Sondajes y ensayes por campaña"></div><p class="caption">Las barras muestran cantidades de registros, no calidad o representatividad espacial.</p></article>
+          <article class="panel"><div class="panel-heading"><div><span class="overline">DE LA PROFUNDIDAD AL ESPACIO</span><h2>¿Dónde quedó cada intervalo?</h2></div></div><div class="flow"><div><b>Collar</b><small>Punto inicial X, Y, Z</small></div><i>→</i><div><b>Survey</b><small>Dirección con profundidad</small></div><i>→</i><div><b>Desurvey</b><small>Trayectoria calculada</small></div><i>→</i><div><b>Intervalo</b><small>Posición X, Y, Z</small></div></div><p class="caption">La trayectoria y los intervalos son resultados geométricos derivados de observaciones. No constituyen por sí solos un sólido geológico.</p></article>
+        </div>
+        <article class="panel table-panel"><div class="panel-heading"><div><span class="overline">INVENTARIO COMPROBADO</span><h2>Las tres campañas del release</h2></div></div><div class="table-scroll"><table><thead><tr><th>Campaña</th><th>Sondajes</th><th>Survey</th><th>Ensayes</th><th>Litología</th><th>Densidad</th></tr></thead><tbody id="campaign-table"></tbody></table></div></article>
+        <div class="notice"><strong>Una distinción que importa.</strong> La ley de Cu en un ensaye y la densidad medida en una muestra describen intervalos. Ninguna de las dos llena automáticamente el bloque que los rodea.</div>
+      </section>
+
+      <section id="compositado" class="screen" aria-labelledby="compositado-title" hidden>
+        <div class="eyebrow">03 / COMPOSITADO</div>
+        <h1 id="compositado-title">Un soporte comparable,<br><em>sin borrar los contactos.</em></h1>
+        <p class="lead">Un ensaye describe un tramo muestreado. Un compósito reúne material dentro de una longitud objetivo para comparar soportes; puede dividir ensayes y ponderar Cu por longitud. El grupo adoptó <strong>2 m</strong> como objetivo y conservó los residuos más cortos.</p>
+        <div class="stats-grid"><article class="stat"><span class="stat-value">2 <small>m</small></span><span class="stat-label">longitud objetivo documentada</span></article><article class="stat"><span class="stat-value" data-value="compositing.total">5830</span><span class="stat-label">compósitos generados</span></article><article class="stat"><span class="stat-value" data-value="compositing.full">5750</span><span class="stat-label">compósitos completos</span></article><article class="stat"><span class="stat-value" data-value="compositing.residual">80</span><span class="stat-label">residuos conservados</span></article></div>
+        <article class="panel example-panel"><div class="panel-heading"><div><span class="overline">EJEMPLO REAL · SE-C01-001 · PROFUNDIDAD 8–13 m</span><h2>El contacto cambia la lectura</h2></div><span class="pill pill-warm">CÓDIGOS LITERALES</span></div><p>El ensaye <strong>SE-C01-001-A0005</strong> va de 8 a 10 m, pero el contacto OVB → VOL está a 9 m. El compósito <strong>8–9 m</strong> queda como residuo OVB; el siguiente <strong>9–11 m</strong> corresponde a VOL y usa aportes de dos ensayes. Los valores y tramos vienen de los CSV del grupo.</p><div class="timeline-wrap"><div class="timeline-axis"><span>8 m</span><span>9 m</span><span>10 m</span><span>11 m</span><span>12 m</span><span>13 m</span></div><div class="timeline-row"><label>ENSAYES</label><div id="assay-timeline" class="timeline-track"></div></div><div class="timeline-row"><label>COMPÓSITOS</label><div id="composite-timeline" class="timeline-track"></div></div><div class="timeline-contact"><span>CONTACTO OBSERVADO · 9 m</span></div></div><div class="legend"><span><i class="swatch observed"></i> Ensaye observado</span><span><i class="swatch ovb"></i> OVB</span><span><i class="swatch vol"></i> VOL</span><span><i class="swatch residual"></i> Residuo</span></div></article>
+        <div class="two-columns"><article class="panel"><span class="overline">DECISIÓN DOCUMENTADA</span><h2>Por qué 2 m</h2><p>Se buscó un soporte de longitud comparable para el ejercicio. La regla mantiene separados los códigos litológicos y conserva los tramos residuales: 2 m es un <strong>objetivo</strong>, no una orden de mezclar contactos o inventar mediciones.</p></article><article class="panel"><span class="overline">LÍMITE</span><h2>Qué todavía no dice</h2><p>Una ley de compósito representa su tramo del sondaje. No es la ley de un bloque ni valida la continuidad geológica entre sondajes.</p></article></div>
+      </section>
+
+      <section id="bloques" class="screen" aria-labelledby="bloques-title" hidden>
+        <div class="eyebrow">04 / MODELO PRELIMINAR DE BLOQUES</div>
+        <h1 id="bloques-title">Una malla para ubicar<br><em>lo conocido y lo pendiente.</em></h1>
+        <p class="lead">La malla local tiene <strong>15 × 14 × 55</strong> celdas de <strong>50 × 50 × 10 m</strong>. Ese tamaño fue una decisión conceptual para el modelo preliminar; los 10 m verticales y el origen local aún tienen límites de justificación.</p>
+        <div class="stats-grid"><article class="stat"><span class="stat-value" data-value="model.block_count">11550</span><span class="stat-label">bloques geométricos</span></article><article class="stat"><span class="stat-value">50 × 50 × 10 <small>m</small></span><span class="stat-label">dimensión de celda</span></article><article class="stat"><span class="stat-value" data-value="model.lithology.ASSIGNED">978</span><span class="stat-label">asignados con soporte</span></article><article class="stat"><span class="stat-value" data-value="model.lithology.UNKNOWN/UNASSIGNED">10572</span><span class="stat-label">sin código asignado</span></article></div>
+        <div class="two-columns"><article class="panel"><div class="panel-heading"><div><span class="overline">CLASIFICACIÓN TOPOGRÁFICA</span><h2>Roca, aire y cruce</h2></div></div><div class="donut-line"><div id="topo-donut" class="donut" role="img" aria-label="Distribución topográfica"></div><div id="topo-legend" class="donut-legend"></div></div><p class="caption">El estado PARTIAL identifica cruce en el centro XY; no calcula fracción volumétrica de roca.</p></article><article class="panel"><div class="panel-heading"><div><span class="overline">ASIGNACIÓN LITOLÓGICA</span><h2>Lo que sí tiene soporte</h2></div></div><div id="assignment-chart" class="assignment-chart"></div><div id="lith-code-list" class="code-list"></div><p class="caption">Los códigos se mantienen literales: el release no documenta su significado oficial.</p></article></div>
+        <article class="panel"><div class="panel-heading"><div><span class="overline">MÉTODO Y LÍMITE</span><h2>¿Cómo recibió código un bloque?</h2></div></div><div class="method-steps"><div><b>01</b><span>Intersección 3D de intervalos observados</span></div><div><b>02</b><span>Un único código concordante y soporte positivo</span></div><div><b>03</b><span>Conflicto o falta de soporte → sin asignar</span></div></div><p>El resultado registra <strong>68 conflictos</strong> y <strong>10 504 bloques sin soporte</strong>. No se aplica voto mayoritario ni se extiende un código a los vecinos.</p></article>
+      </section>
+
+      <section id="tresd" class="screen" aria-labelledby="tresd-title" hidden>
+        <div class="eyebrow">05 / VISUALIZACIÓN 3D</div>
+        <h1 id="tresd-title">Explora el modelo.<br><em>Lee sus límites.</em></h1>
+        <p class="lead">Reutilizamos el HTML integrado del grupo: contiene los <strong>11 550 bloques</strong>, topografía, sondajes, intervalos y contactos. Algunas capas comienzan ocultas o cambian con el selector; el total incluido en el archivo no equivale a todos los elementos visibles al mismo tiempo.</p>
+        <div class="viewer-card"><div class="viewer-preview"><img src="assets/vista_3d_original_g05.png" alt="Captura del visualizador original G05 con bloques, superficie y sondajes"><span>CAPTURA DEL PRODUCTO ORIGINAL G05</span></div><div class="viewer-intro"><span class="pill pill-cool">HTML ORIGINAL · 52 MB</span><h2>Modelo integrado y sección X–Z</h2><p>Activa capas por litología o estado topográfico. Gira y acerca la vista; usa el hover para leer código, estado y soporte. La sección es diagnóstica.</p><div class="viewer-actions"><button id="load-3d" class="button primary" type="button">Cargar 3D aquí <span aria-hidden="true">↗</span></button><a class="button secondary" href="visor/m01b_block_model_geology_topography.html" target="_blank" rel="noopener">Abrir en otra pestaña</a></div><small>La primera carga puede tardar y usar memoria. El archivo es local y autocontenido.</small></div></div>
+        <div id="model-frame-wrap" class="model-frame-wrap" hidden><div class="frame-heading"><strong>Vista original interactiva · G05</strong><span>11 550 bloques incluidos · capas con visibilidad seleccionable</span></div><iframe id="model-frame" title="Visualizador 3D original del modelo G05" loading="lazy"></iframe></div>
+        <div class="notice"><strong>Pregunta de lectura.</strong> Si un bloque aparece sin color litológico, ¿significa ley cero o falta de soporte para asignar un código? La vista no muestra leyes de bloque.</div>
+      </section>
+
+      <section id="decisiones" class="screen" aria-labelledby="decisiones-title" hidden>
+        <div class="eyebrow">06 / DECISIONES DE INGENIERÍA</div>
+        <h1 id="decisiones-title">Detrás de cada resultado<br><em>hay una decisión de ingeniería.</em></h1>
+        <p class="lead">No elegimos parámetros porque sí. Cada decisión intenta resolver un problema del modelo, tiene consecuencias y requiere evidencia. Aquí distinguimos lo documentado en <strong>Santa Elena</strong> de lo que un equipo técnico debería revisar en una mina real.</p>
+        <div class="decision-process" aria-label="Ruta de decisión de ingeniería">
+          <div><span>01</span><strong>Identificar el problema</strong><small>¿Qué necesitamos representar?</small></div>
+          <div><span>02</span><strong>Evaluar los datos</strong><small>¿Qué soporte y calidad tenemos?</small></div>
+          <div><span>03</span><strong>Comparar opciones</strong><small>¿Qué se gana y qué se pierde?</small></div>
+          <div><span>04</span><strong>Validar y documentar</strong><small>¿Qué podemos afirmar con rigor?</small></div>
+        </div>
+        <div class='decision-list'><article><span class='decision-index'>01</span><div class='decision-story'><span class='overline'>COMPOSITADO</span><h2>¿Por qué se eligieron compósitos de 2 m?</h2><p class='decision-summary'><strong>Qué decidió o documentó el grupo</strong>Santa Elena adoptó una longitud objetivo de 2 m respetando contactos litológicos. El CSV contiene 5 830 compósitos, incluidos 80 residuales.</p><div class='decision-explain'><p><strong>Por qué importa</strong>Un soporte comparable ayuda a leer ensayes; unir litologías distintas ocultaría un cambio observado.</p><div class='professional-box'><strong>Cómo se toma profesionalmente</strong><dl class='professional-steps'><div><dt>Información</dt><dd>Longitudes de ensaye, contactos y distribución de leyes dentro de cada tramo.</dd></div><div><dt>Alternativas</dt><dd>Comparar longitudes candidatas y opciones de conservar residuos.</dd></div><div><dt>Criterio</dt><dd>Elegir una longitud que responda al muestreo y a la escala del modelo, sin cruzar dominios.</dd></div><div><dt>Comprobación</dt><dd>Conciliar metros, contactos y residuos con ensayes y CSV de compósitos.</dd></div></dl></div></div><p class='decision-boundary'><strong>Qué significa para nuestro proyecto</strong>Los 2 m son objetivo del ejercicio, no regla universal; ningún compósito se convierte en ley de bloque.</p></div><span class='pill pill-amber'>DOCUMENTADA</span></article><article><span class='decision-index'>02</span><div class='decision-story'><span class='overline'>GEOMETRÍA</span><h2>¿Por qué 50 × 50 × 10 m?</h2><p class='decision-summary'><strong>Qué decidió o documentó el grupo</strong>G05 adoptó 50 × 50 × 10 m. Comparó los 50 m horizontales con una mediana observada cercana a 55 m entre sondajes; los 10 m verticales aún carecen de justificación formal suficiente.</p><div class='decision-explain'><p><strong>Por qué importa</strong>La malla puede suavizar contactos o aparentar una precisión que los datos no sostienen.</p><div class='professional-box'><strong>Cómo se toma profesionalmente</strong><dl class='professional-steps'><div><dt>Información</dt><dd>Espaciamiento de sondajes, continuidad geológica, altura de banco y selectividad esperada.</dd></div><div><dt>Alternativas</dt><dd>Comparar tamaños horizontales y verticales más finos o más gruesos.</dd></div><div><dt>Criterio</dt><dd>Escoger el detalle útil que pueda sostenerse con observaciones y propósito minero.</dd></div><div><dt>Comprobación</dt><dd>Revisar sensibilidad de dominios, cobertura y secciones antes de fijar la malla.</dd></div></dl></div></div><p class='decision-boundary'><strong>Qué significa para nuestro proyecto</strong>El grid contiene 11 550 celdas. La dimensión vertical sigue como limitación explícita, no como parámetro optimizado.</p></div><span class='pill pill-amber'>PRELIMINAR</span></article><article><span class='decision-index'>03</span><div class='decision-story'><span class='overline'>TOPOGRAFÍA</span><h2>¿Cómo distinguimos roca, aire y bloques parciales?</h2><p class='decision-summary'><strong>Qué decidió o documentó el grupo</strong>Se usó una superficie interpolada por triángulos (TIN) y el centro XY de 210 columnas para obtener ROCK, AIR y PARTIAL.</p><div class='decision-explain'><p><strong>Por qué importa</strong>Un bloque de aire no aporta roca; un parcial no representa automáticamente su volumen de roca completo.</p><div class='professional-box'><strong>Cómo se toma profesionalmente</strong><dl class='professional-steps'><div><dt>Información</dt><dd>Levantamiento topográfico, CRS, datum vertical, límites de cobertura y puntos de control.</dd></div><div><dt>Alternativas</dt><dd>Comparar centro, esquinas e intersección de volumen con la superficie.</dd></div><div><dt>Criterio</dt><dd>Elegir el método de clasificación acorde con el uso del modelo y la precisión de la topografía.</dd></div><div><dt>Comprobación</dt><dd>Contrastar elevaciones y bloques de borde; si importa tonelaje, calcular fracción de roca.</dd></div></dl></div></div><p class='decision-boundary'><strong>Qué significa para nuestro proyecto</strong>La procedencia y referencia del archivo topográfico Topopl siguen pendientes. PARTIAL no tiene fracción volumétrica calculada.</p></div><span class='pill pill-amber'>FUENTE PARCIAL</span></article><article><span class='decision-index'>04</span><div class='decision-story'><span class='overline'>LITOLOGÍA</span><h2>¿Por qué dejamos bloques sin código?</h2><p class='decision-summary'><strong>Qué decidió o documentó el grupo</strong>G05 asignó un código solo con soporte observado compatible: 978 bloques asignados, 68 conflictos y 10 504 sin soporte.</p><div class='decision-explain'><p><strong>Por qué importa</strong>Forzar códigos donde faltan datos puede crear falsas continuidades y afectar estimaciones futuras.</p><div class='professional-box'><strong>Cómo se toma profesionalmente</strong><dl class='professional-steps'><div><dt>Información</dt><dd>Logueos, contactos, secciones, estructuras, distancia y concordancia de observaciones.</dd></div><div><dt>Alternativas</dt><dd>Comparar dominios interpretados, reglas de proximidad y mantener bloques desconocidos.</dd></div><div><dt>Criterio</dt><dd>Asignar solo cuando la evidencia sea suficiente y los códigos no se contradigan.</dd></div><div><dt>Comprobación</dt><dd>Inspeccionar conflictos, zonas sin soporte y estabilidad en secciones.</dd></div></dl></div></div><p class='decision-boundary'><strong>Qué significa para nuestro proyecto</strong>La asignación es preliminar y categórica. Los códigos no tienen definición oficial acreditada.</p></div><span class='pill pill-amber'>CONSERVADORA</span></article><article><span class='decision-index'>05</span><div class='decision-story'><span class='overline'>REPRESENTACIÓN</span><h2>¿Qué muestran los sondajes y bloques en 3D?</h2><p class='decision-summary'><strong>Qué decidió o documentó el grupo</strong>El paquete didáctico R3, no una decisión estudiantil documentada, incorporó 44 trayectorias de sondaje en la portada y conservó el HTML integrado con 11 550 bloques, topografía, intervalos y sección X–Z.</p><div class='decision-explain'><p><strong>Por qué importa</strong>Girar una escena ayuda a detectar relaciones espaciales, pero una imagen atractiva puede sugerir certeza inexistente.</p><div class='professional-box'><strong>Cómo se toma profesionalmente</strong><dl class='professional-steps'><div><dt>Información</dt><dd>Trayectorias en X, Y, Z, capas del modelo, categorías, metadatos y cobertura de observaciones.</dd></div><div><dt>Alternativas</dt><dd>Contrastar portada de sondajes, modelo integrado, cortes y tablas fuente.</dd></div><div><dt>Criterio</dt><dd>Separar observación, clasificación geométrica y asignación con sus límites.</dd></div><div><dt>Comprobación</dt><dd>Verificar carga, rotación, zoom, hover, capas y conteos en Chrome frente a los CSV.</dd></div></dl></div></div><p class='decision-boundary'><strong>Qué significa para nuestro proyecto</strong>La portada muestra sondajes y la pantalla 05 muestra el modelo integrado. Ambas son vistas diagnósticas pendientes de aceptación visual interactiva.</p></div><span class='pill pill-amber'>ALCANCE ACOTADO</span></article></div>
+        <div class="notice decision-last-note"><strong>Idea para recordar:</strong> una decisión técnica se justifica con evidencia y conociendo sus efectos. En un proyecto real, los parámetros se revisan conforme aparece información nueva; aquí estamos comprendiendo <strong>decisiones preliminares de un ejercicio académico</strong>.</div>
+      </section>
+
+      <section id="estado" class="screen" aria-labelledby="estado-title" hidden>
+        <div class="notice"><strong>Corte E1 preservado.</strong> Este estado describe el modelo preliminar y respalda la ficha de 21 observaciones. Consulta los resultados posteriores en S11 y S12.</div>
+        <div class="eyebrow">07 / ESTADO ACTUAL</div>
+        <h1 id="estado-title">Lo construido.<br><em>Lo que todavía falta.</em></h1>
+        <p class="lead">El modelo está disponible y tuvo validación computacional y observacional dentro de su alcance T2. La revisión geológica profesional, los metadatos espaciales y las propiedades cuantitativas requieren trabajo posterior.</p>
+        <div class="status-grid"><div class="status-column"><h2>Productos disponibles</h2><div class="status-item"><span class="status-bullet available"></span><div><b>Exploración y geometría</b><small>Release DS05/EXP03, 44 sondajes, survey y datos observados.</small></div></div><div class="status-item"><span class="status-bullet available"></span><div><b>Compósitos</b><small>5830 filas trazables, objetivo 2 m y residuos conservados.</small></div></div><div class="status-item"><span class="status-bullet available"></span><div><b>Modelo preliminar y 3D</b><small>11 550 bloques; topografía y asignación litológica con límites visibles.</small></div></div><div class="status-item"><span class="status-bullet reported"></span><div><b>Pruebas técnicas</b><small>41 PASS reportadas por el repositorio G05; no reejecutadas en este piloto.</small></div></div></div><div class="status-column pending-column"><h2>Conocimiento pendiente</h2><div class="status-item"><span class="status-bullet pending"></span><div><b>Puntos topográficos: procedencia y referencia</b><small>No figura en el manifiesto original; CRS/EPSG y datum vertical sin documentar.</small></div></div><div class="status-item"><span class="status-bullet pending"></span><div><b>Significado oficial de códigos</b><small>OVB, BRX, POR, VOL y AIR se conservan literalmente.</small></div></div><div class="status-item"><span class="status-bullet pending"></span><div><b>Propiedades del bloque</b><small>Sin ley, densidad, volumen neto de PARTIAL o tonelaje estimados.</small></div></div><div class="status-item"><span class="status-bullet pending"></span><div><b>Decisiones operacionales</b><small>Sin recursos, reservas, pit, secuenciamiento ni escenario propio verificado.</small></div></div></div></div>
+        <div class="closing-card"><div><span class="overline">PARA LA PRIMERA SESIÓN</span><h2>Tu tarea es explicar el estado de tu proyecto.</h2><p>Reconoce qué observamos, cómo se produjo el modelo preliminar, qué se asignó y qué sigue siendo desconocido. La interpretación viene antes de decidir la siguiente etapa.</p></div><a class="button primary" href="#proyecto">Volver al inicio <span aria-hidden="true">↑</span></a></div>
+      </section>
+
+      <section id="teoria" class="screen" aria-labelledby="teoria-title" hidden>
+        <div class="eyebrow">08 / S11 · TEORÍA DE ESTIMACIÓN</div>
+        <h1 id="teoria-title">De las muestras a la ley<br><em>que todavía falta en los bloques.</em></h1>
+        <p class="lead">Compara ocho alternativas en la guía interactiva: vecino más cercano, IDW/IDW², kriging ordinario, simple, con tendencia y de indicadores, cokriging y simulación condicional. Primero explica qué aporta cada una y qué datos exige; luego argumenta cuál usarías. La misión G05 prevé IDW² después de esa comparación.</p>
+        <div class="notice"><strong>Antes de estimar.</strong> La Vista 3D E1 muestra sondajes, topografía y códigos preliminares. Los colores de esta guía son ejemplos para aprender. Los resultados calculados del grupo, si están verificados, se consultan por separado en S11 y S12.</div>
+        <div class="theory-actions"><a class="button secondary" href="#tresd">Revisar el modelo G05 en 3D <span aria-hidden="true">↗</span></a><a class="button primary" href="docs/guia_visual_estimacion.html#metodos" target="_blank" rel="noopener">Abrir la guía en pantalla completa <span aria-hidden="true">↗</span></a></div>
+        <div class="theory-frame"><div class="frame-heading"><strong>Guía visual aprobada y ampliada · métodos, continuidad y compositación</strong><span>Ejemplos académicos separados del modelo G05</span></div><iframe src="docs/guia_visual_estimacion.html#metodos" title="Guía visual interactiva: ocho métodos de estimación y continuidad espacial" loading="lazy"></iframe></div>
+      </section>
+
+      <section id="s11" class="screen" aria-labelledby="s11-title" hidden>
+        <div class="eyebrow">09 / S11 · RESULTADOS CALCULADOS G05</div>
+        <h1 id="s11-title">Modelo de bloques<br><em>de recursos ACADÉMICO.</em></h1>
+        <p class="lead">Primero compara los métodos en la teoría. Después observa dónde IDW² pudo estimar con respaldo y dónde conservó faltantes. El volumen se calcula bajo la topografía; las toneladas requieren densidad sustentada.</p>
+        <div id="s11-status" class="notice" role="status">Comprobando la generación publicada…</div>
+        <div id="s11-metrics" class="metric-strip"></div>
+        <div id="s11-files" class="theory-actions"></div>
+        <button class="button primary" data-mission-load="S11">Cargar visor S11 aquí</button>
+        <div class="theory-frame" style="margin-top:20px"><iframe data-mission-frame="S11" title="Modelo cuantitativo S11 G05 con leyes, densidad, volumen y soporte" style="height:1100px" loading="lazy"></iframe></div>
+        <div class="notice">El alumno observa un valor, lo explica a Kai y Kai lo verifica antes de registrarlo. La ficha E1 permanece separada de la nueva ficha de aplicación S11/S12.</div>
+      </section>
+      <section id="s12" class="screen" aria-labelledby="s12-title" hidden>
+        <div class="eyebrow">10 / S12 · BLOQUES Y ESCENARIOS G05</div>
+        <h1 id="s12-title">Modelo preliminar de bloques<br><em>de reservas ACADÉMICO.</em></h1>
+        <p class="lead">Partimos del S11 validado. Un bloque con ley suficiente todavía necesita geología, volumen y densidad respaldados para ser candidato. La relación con A/B queda en una tabla por bloque.</p>
+        <div id="s12-status" class="notice" role="status">Comprobando la generación publicada…</div>
+        <div id="s12-metrics" class="metric-strip"></div>
+        <div id="s12-files" class="theory-actions"></div>
+        <button class="button primary" data-mission-load="S12">Cargar visor S12 aquí</button>
+        <div class="theory-frame" style="margin-top:20px"><iframe data-mission-frame="S12" title="Candidatos por bloque y comparación de escenarios A y B G05" style="height:1200px" loading="lazy"></iframe></div>
+        <div class="notice"><strong>Vínculo G05-ALLOC-01.</strong> Cada clase participa proporcionalmente a su tonelaje, hasta las metas del período y sin superar el inventario. Es una asignación fraccionaria para comparar capacidad y costos. El orden de extracción, acceso y estabilidad quedan sin modelar.</div>
+      </section>
+      <footer><img src="assets/L1.png" alt="Símbolo DrillStone"><span>PLANMINUPN 2.0 · PILOTO G05 · SANTA ELENA</span><span>Fuente: commit <code>7825c211</code> · E1 → S11 → S12</span></footer>
+    </main>
+  </div>
+</body>
+</html>

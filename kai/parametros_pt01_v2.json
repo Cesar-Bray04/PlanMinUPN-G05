@@ -1,0 +1,91 @@
+{
+  "route_id": "KAI-G05-TEORIA",
+  "route_version": 2,
+  "alcance": "TEORIA_CON_EJEMPLOS_ACADEMICOS",
+  "grupo": "G05",
+  "sin_equivalencia_automatica_v1": true,
+  "origen": "PT-01; misiones 11 y 12; decisión de diseño DD 2026-11-13",
+  "aplicacion_g05": "CONSULTAR_MANIFIESTO_DINAMICO",
+  "geometria_g05_m": [
+    50,
+    50,
+    10
+  ],
+  "compositado_objetivo_g05_m": 2,
+  "S11": {
+    "schema_version": "pt01-s11/1.0",
+    "scope": "TEACHING_ONLY",
+    "resource_or_reserve_statement": false,
+    "grade": {
+      "power": 2,
+      "radius_m": 75,
+      "max_samples": 12,
+      "min_samples": 3,
+      "min_holes": 2,
+      "reference_length_m": 2
+    },
+    "density": {
+      "power": 2,
+      "radius_m": 100,
+      "max_samples": 8,
+      "min_samples": 2
+    },
+    "excluded_lithologies": [
+      "AIR",
+      "OVB"
+    ],
+    "coincident_policy": "EXACT_SUBSET_MINIMA_IDENTICAL_VALUES_ONLY",
+    "axes": "X_EAST_Y_NORTH_Z_UP",
+    "coordinate_unit": "m",
+    "units": {
+      "cu_pct": "percent",
+      "mo_pct": "percent",
+      "au_gt": "g/t",
+      "density_t_m3": "t/m3",
+      "volume": "m3",
+      "tonnage": "t"
+    },
+    "max_display_blocks": 6000
+  },
+  "S12": {
+    "schema_version": "pt01-s12/1.0",
+    "scope": [
+      "TEACHING_ONLY",
+      "NO_RESOURCE_OR_RESERVE",
+      "NO_PIT_NO_OPTIMIZED_SCHEDULE"
+    ],
+    "parameter_basis": "ACADEMIC_ASSUMPTION",
+    "parameters": {
+      "ore_cutoff_cu_pct": 0.5,
+      "mine_t_per_day": 5000,
+      "plant_t_per_day": 3000,
+      "operating_days": 22,
+      "truck_payload_t": 40,
+      "shifts": 2,
+      "hours_per_shift": 8,
+      "availability": 0.85,
+      "utilization": 0.8,
+      "truck_capex_usd": 450000,
+      "mining_opex_usd_per_t_moved": 3.5,
+      "processing_opex_usd_per_t_ore_processed": 8.0,
+      "general_opex_usd_per_t_moved": 0.8,
+      "theoretical_budget_ore_fraction": 0.6
+    },
+    "scenario_cycles_min": {
+      "A": 30,
+      "B": 40
+    },
+    "units": {
+      "cu": "percent",
+      "inventory": "t",
+      "capacity": "t/day",
+      "cycle": "min/cycle",
+      "payload": "t/cycle",
+      "hours": "h/day",
+      "capex": "USD",
+      "opex_rate": "USD/t",
+      "opex_daily": "USD/day"
+    }
+  },
+  "estado_ejecucion": "outputs/g05_products.json; comprobar hashes con kai/recorrido_g05.py o python -m src.missions.g05 verificar"
+}

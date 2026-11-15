@@ -1,0 +1,161 @@
+{
+  "revision": "R4_CONSOLIDADO_FASE03_1",
+  "group": "G05",
+  "project": "Santa Elena",
+  "created_utc": "2026-11-11T14:34:55+00:00",
+  "reference_R1_zip_sha256": "64071e47d70fa3e22a5674993ab95f6e838602edfb17c2bc8c497d2e88b96f9c",
+  "reference_R3_zip_sha256": "727b05c5afc367196b14e808d272365274d930c1eda877235d303c74c900ec62",
+  "file_count_excluding_manifest": 37,
+  "total_bytes_excluding_manifest": 63295317,
+  "self_hash_policy": "This manifest lists all other files; its own SHA-256 is recorded in the root version index and ZIP entry check.",
+  "files": {
+    "assets/app.js": {
+      "bytes": 8229,
+      "sha256": "7e161106deee6ea5f65bab3b9429245a39ad5435a83a65ae2db33abf1d0ff437"
+    },
+    "assets/L1.png": {
+      "bytes": 895814,
+      "sha256": "0ec9781ea4aad486d4caaa2fbd883468dd82d947bdd1bc67bc1cf23b04e36034"
+    },
+    "assets/L3.png": {
+      "bytes": 320647,
+      "sha256": "306c015dcad15cdc05eddfde7a3688f4ec55cbb0e65b3dc8310ab3a1ad802833"
+    },
+    "assets/plotly-4.1.1.min.js": {
+      "bytes": 4815814,
+      "sha256": "3b6e15d45dbb7fca5bd2094291e961ddc5472cd887009e6009a56dab668d721f"
+    },
+    "assets/r4.css": {
+      "bytes": 1081,
+      "sha256": "0fcac034264bf891faeb2ca0ec82dbe9bf845bab83352cf2264cfc0d66592105"
+    },
+    "assets/sondajes_3d_g05.png": {
+      "bytes": 138664,
+      "sha256": "046dbad10fa7d3ad19f482ca830d222dec1074ec5f18942ac41e6abb532621d6"
+    },
+    "assets/style.css": {
+      "bytes": 23756,
+      "sha256": "8bd26d9fd458ebc84292c40d89be4989c196d383d1d2413be7d8971d6e71b64c"
+    },
+    "assets/vista_3d_original_g05.png": {
+      "bytes": 289426,
+      "sha256": "c714d660e5004eead8aa0e77ff4bfa4c92f7efc58b1f9563a1c63c6196dd0321"
+    },
+    "BASE_CONOCIMIENTO.md": {
+      "bytes": 13685,
+      "sha256": "939fb3fd9ce096dd84fb6f26618326553acd127788662a20f4b14839a06c6927"
+    },
+    "CAMBIOS_R4.md": {
+      "bytes": 1202,
+      "sha256": "b10d560fb4b545ee7c6d0a3bca3a6facaa928a8b36953ff1c7382d348069d6bd"
+    },
+    "capturas/01_nuestro_proyecto.png": {
+      "bytes": 263713,
+      "sha256": "c5a810ba1e754d80e469f0d9ec41df3154baeb75bd7f4a388ab03c28a31858c7"
+    },
+    "capturas/01_proyecto.png": {
+      "bytes": 270987,
+      "sha256": "e9acee04ee16ac8c3e76ea85fe75658c2b4469add1647121b20bd981752cd0e6"
+    },
+    "capturas/02_datos.png": {
+      "bytes": 111347,
+      "sha256": "3781c69ceb98a139b36a6ec315c75c5aedffdb453b80125c8495cf3d04e50aaf"
+    },
+    "capturas/03_compositado.png": {
+      "bytes": 95567,
+      "sha256": "d52ae67e0f79097644e5bc0f9ceab4bf4362baa5e5a6c9d957aca92e92716087"
+    },
+    "capturas/04_bloques.png": {
+      "bytes": 101830,
+      "sha256": "f3a18cdf9521029dc7088db2a72af600540d67a5efe024d69f549a6be1a2363d"
+    },
+    "capturas/05_tresd.png": {
+      "bytes": 196881,
+      "sha256": "dbafb7f92c69856e96ae649bb4edabaf467e5d3c9bbc2df96d87aa3b2249eb9d"
+    },
+    "capturas/06_decisiones.png": {
+      "bytes": 104091,
+      "sha256": "eedb61e58f1c71a765e627dcd4ae310c59afb9aef6e6ec551d8d9abf47e5d27d"
+    },
+    "capturas/07_estado.png": {
+      "bytes": 154283,
+      "sha256": "cbbb02790c73e5699dda39accec3d311a1355459c478c1f7a95358e2268ed353"
+    },
+    "capturas/08_modelo_3d_chrome.png": {
+      "bytes": 292822,
+      "sha256": "2837a66a83f334b8951047ea2c0ae7c89bd830023f0998a28c8fa8d2d9c9f0ed"
+    },
+    "datos/block_model_preliminary_geology_topography.csv": {
+      "bytes": 1924416,
+      "sha256": "c4628841371a393f574f187222d906d368f1d2678605ae28b7411f86da876e96"
+    },
+    "datos/composites.csv": {
+      "bytes": 691276,
+      "sha256": "7a00a557bf604eba8ac45d158ba2a01a6d03caa8fccd14b020c47df478b4193c"
+    },
+    "datos/resumen.js": {
+      "bytes": 2637,
+      "sha256": "9076118e2854e92a99f09e63221df0363df90271b1cde7ee221875abb3b5ce02"
+    },
+    "datos/resumen_verificado.json": {
+      "bytes": 4014,
+      "sha256": "5ba295de04f8528debe0cca66b75adb61c373fa4cff100d0b11ac850d167aad5"
+    },
+    "GUIA_ACEPTACION_VISUAL_CHROME.md": {
+      "bytes": 2871,
+      "sha256": "fa63eca3101480cad2c65b871f07813113ccc5e376dd20c4120fbe48cd55a926"
+    },
+    "historial/FUENTES_G05_R3_ORIGINAL.json": {
+      "bytes": 5192,
+      "sha256": "f41d646d3a258bbfd1bad9c2212331a4b44d961f03064a8f6b23c61ad3d112ba"
+    },
+    "historial/MANIFIESTO_PAQUETE_R3_ORIGINAL.json": {
+      "bytes": 5265,
+      "sha256": "1be6a9640c57ff6bb0aedba5396511a6845ef899d0f21395e27ee523e3737014"
+    },
+    "historial/VALIDACION_R3_ORIGINAL.md": {
+      "bytes": 6022,
+      "sha256": "5ec0a80188ef242ef2964cc00f9754fccd6ae400d0123082d3f1c83142087037"
+    },
+    "index.html": {
+      "bytes": 28124,
+      "sha256": "c3eb1ef10ea4805185558becd51a4a6285c97ca82fd379679b164985a466101b"
+    },
+    "procedencia/FUENTES_G05.json": {
+      "bytes": 6114,
+      "sha256": "25dc768ee2d8bd5e0952289373b26b623d391bfce47b9e5f8a27a940f7d4ce14"
+    },
+    "procedencia/MAPA_INDICADORES.md": {
+      "bytes": 5001,
+      "sha256": "dedb51c6d531b0403b6dea42d13e10ecfac3b7322c6f47c139a6e26253bfc018"
+    },
+    "README.md": {
+      "bytes": 3619,
+      "sha256": "b97f946e59165ab21f516aaf43cf05cec65807fee7598c27dd456033878055f4"
+    },
+    "RUTA_KAI_PRIMERA_SESION.md": {
+      "bytes": 6208,
+      "sha256": "fac6c4a7f0645e34fb1c2bf5aa0665c0bc35767eb1a557cb559f9363e5f569b5"
+    },
+    "VALIDACION.md": {
+      "bytes": 1164,
+      "sha256": "e347d8f349e9a5dfa29c7cc550cb0974fbb3a0310f1f603a06ee267cdb5e836c"
+    },
+    "visor/m01b_block_model_geology_topography.html": {
+      "bytes": 52479274,
+      "sha256": "7a568d4e26d25bec472aa3c54e9a6474cd00832e923a4bc9386c0ec0d3d39eba"
+    },
+    "visor/sondajes_3d.html": {
+      "bytes": 845,
+      "sha256": "2c1e0965f658f2d48fde62d6b5f75a30d37d96602984980cb7a8015a74a17953"
+    },
+    "visor/sondajes_3d.js": {
+      "bytes": 2205,
+      "sha256": "adc351a9e8ca6e4c0c811b65306339c5a009294e2316238566ca068070fa453f"
+    },
+    "visor/sondajes_3d_data.js": {
+      "bytes": 21231,
+      "sha256": "ae3d52efcafec7a961f3829bf482bfbdf4c0ddced6b9e36a8f27a09e529892fc"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+.theory-actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}
+.theory-frame{background:#102422;border:1px solid #375650;border-radius:16px;overflow:hidden;margin-top:20px}
+.theory-frame iframe{display:block;width:100%;height:min(78vh,900px);min-height:580px;border:0;background:#07151b}
+@media(max-width:720px){.theory-actions .button{white-space:normal;text-align:center}.theory-frame iframe{height:680px;min-height:0}}

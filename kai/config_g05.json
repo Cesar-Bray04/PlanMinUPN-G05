@@ -1,0 +1,15 @@
+{
+  "id": "PLANMINUPN2-G05-R5",
+  "grupo": "G05",
+  "proyecto": "Santa Elena",
+  "dataset": "DS05",
+  "release": "EXP03",
+  "ruta": "kai/ruta_g05.json",
+  "visor": "index.html",
+  "conocimiento": "BASE_CONOCIMIENTO.md",
+  "version_visuales": "R4 consolidada",
+  "datos": "sintéticos, solo uso académico",
+  "no_hay_estimacion_cu_densidad_tonelaje_por_bloque": true,
+  "registro_local": ".kai_local",
+  "evaluacion_formal": false
+}

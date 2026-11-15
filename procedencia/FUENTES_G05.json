@@ -1,0 +1,117 @@
+{
+  "repository": "https://github.com/Cesar-Bray04/PlanMinUPN-G05",
+  "branch": "feature/m01b-block-model",
+  "commit": "7825c2110a111193eb8e069c6358baa0dca0eb3e",
+  "release_manifest_identity": {
+    "project_id": "santa_elena",
+    "project_name": "Santa Elena",
+    "dataset_id": "DS05",
+    "release_id": "EXP03",
+    "synthetic_data": true
+  },
+  "release_manifest_sha256": "46c93bad38c742a629dd677194223888128b3e8ddaefc07ce69c33bf91b2bf63",
+  "source_sha256": {
+    "data/processed/m01b/composites.csv": {
+      "git_blob_sha256": "4c4545d1491d921c85f8e14c23e687cfde229fe181a4df256c3e8439a881a860",
+      "windows_checkout_sha256": "7a00a557bf604eba8ac45d158ba2a01a6d03caa8fccd14b020c47df478b4193c"
+    },
+    "data/processed/m01b/block_model_preliminary_geology_topography.csv": {
+      "git_blob_sha256": "18435b956891ca3bdb29f560665a7a56f0b41da10802397cf27ffb9027377205",
+      "windows_checkout_sha256": "c4628841371a393f574f187222d906d368f1d2678605ae28b7411f86da876e96"
+    },
+    "outputs/figures/m01b_block_model_geology_topography.html": {
+      "git_blob_sha256": "da665c1a67ad6469bd8be4f820e02111bf6f14b27e619334f70cc3a51cb631d4",
+      "windows_checkout_sha256": "7a568d4e26d25bec472aa3c54e9a6474cd00832e923a4bc9386c0ec0d3d39eba"
+    },
+    "data/raw/topography/Topopl.csv": {
+      "git_blob_sha256": "1724a97f1fa6f6a059def896d1ba566b1e23d6f78781034bf2e3f53d2d4b1887",
+      "windows_checkout_sha256": "6b150af3656c1bd7832b78e965af82ab10f48ac82126f700b740be9ff573b7f1"
+    },
+    "data/raw/README.md": {
+      "git_blob_sha256": "f529b4fa28c97a738f3ebfc5895175f7a44ec9a5b7503d398535e459372aa66d",
+      "windows_checkout_sha256": "8ff84e919e84163acb6b816b1ff481d2c19fffa3ec1f9d04183ef810dc713e26"
+    },
+    "data/raw/alteration.csv": {
+      "git_blob_sha256": "f694c0bbd6cb51cfd815b969269b593974d5c199142b24ebb4d4f007e85acb21",
+      "windows_checkout_sha256": "58e674f361b234fd1bdbc269cedbc43261610c4853e229b0876e9e022cc9d895"
+    },
+    "data/raw/assay.csv": {
+      "git_blob_sha256": "d63f50ec51ae297b02705580b6e97fd24e33b6958408f74e689608502f5a3c53",
+      "windows_checkout_sha256": "bcc22d4fbe0ffe33f8ff3b1e2cf1bd0cb88493ef5c5535a36e89f495bf0cf0c6"
+    },
+    "data/raw/collar.csv": {
+      "git_blob_sha256": "120f6c46b1c42f9221173653380cc193da690be2ddb89842b38c75fe76b69556",
+      "windows_checkout_sha256": "2f5e42b6351bc75a4bebe69c101e9e46e6fae071421fb31734d95a6905a9c3cb"
+    },
+    "data/raw/data_dictionary.csv": {
+      "git_blob_sha256": "a064bd18a482f6868f1f257ce839940792e37d2338f00858214b742235cb2ff3",
+      "windows_checkout_sha256": "d9c22471bd85cfeb7d90b603522db580ab3dfb13b9b99912aa86a7bfa34ae217"
+    },
+    "data/raw/density.csv": {
+      "git_blob_sha256": "82b77e459f0c2970f3a1105f7adc9c2e28ae7e1b892eb23fe9f00d3a6128052b",
+      "windows_checkout_sha256": "24c7b6a2b789aec303509484d6d8c14c64385a38b93a91d99f2115ba51dde969"
+    },
+    "data/raw/lithology.csv": {
+      "git_blob_sha256": "60b19e485c322e48edeaac7545a6bcffd410cc16395eef56f0ad439600036eb8",
+      "windows_checkout_sha256": "4e89cdfe0a847763e16792c2921a1d3db1edd6b9d5c991f6dbe8c879846126d6"
+    },
+    "data/raw/survey.csv": {
+      "git_blob_sha256": "445b477c8e82ad03900845af48bd7e01d2ad6d3567424042cee366889928e892",
+      "windows_checkout_sha256": "963ce9750ae9bf5c3e8f1182ec58a7a363fbc2da3b4247254e75de5bf9e1964e"
+    }
+  },
+  "newline_note": "Git core.autocrlf=true in the Windows audit clone. release_manifest hashes match canonical LF Git blobs; some checkout and delivered files use CRLF and have a different byte hash without changing the CSV records.",
+  "data_assertions": {
+    "raw_manifest_hashes_match_git_blobs": true,
+    "raw_counts_match_manifest": true,
+    "model_rows_and_geometry_recounted": true,
+    "composite_counts_recounted": true,
+    "source_checkout_clean": true
+  },
+  "asset_provenance": {
+    "assets/L1.png": {
+      "origin": "PlanMinUPN histórico local: docs/assets/drillstone/L1.png",
+      "sha256": "0ec9781ea4aad486d4caaa2fbd883468dd82d947bdd1bc67bc1cf23b04e36034"
+    },
+    "assets/L3.png": {
+      "origin": "PlanMinUPN histórico local: docs/assets/drillstone/L3.png",
+      "sha256": "306c015dcad15cdc05eddfde7a3688f4ec55cbb0e65b3dc8310ab3a1ad802833"
+    },
+    "assets/vista_3d_original_g05.png": {
+      "origin": "G05 commit fijado: outputs/figures/m01b_modelo_3d_vista_01.png",
+      "sha256": "c714d660e5004eead8aa0e77ff4bfa4c92f7efc58b1f9563a1c63c6196dd0321"
+    },
+    "assets/sondajes_3d_g05.png": {
+      "origin": "Perspectiva generada de las 44 trazas de sondaje XYZ contenidas en el HTML integrado G05",
+      "sha256": "046dbad10fa7d3ad19f482ca830d222dec1074ec5f18942ac41e6abb532621d6"
+    }
+  },
+  "derived_drillhole_view": {
+    "source_html": "outputs/figures/m01b_block_model_geology_topography.html",
+    "source_legendgroup": "drillholes",
+    "hole_count": 44,
+    "trajectory_point_count": 313,
+    "campaign_holes": {
+      "C01": 16,
+      "C02": 20,
+      "C03": 8
+    },
+    "coordinates_copied_without_desurvey_recalculation": true,
+    "data_file": "visor/sondajes_3d_data.js",
+    "plotly_runtime_origin": "JavaScript Plotly 4.1.1 embebido en el HTML integrado original; conserva su aviso MIT"
+  },
+  "package_revision": "R4_CONSOLIDADO_FASE03_1",
+  "reference_lineage": {
+    "pedagogical_approved_R1_zip_sha256": "64071e47d70fa3e22a5674993ab95f6e838602edfb17c2bc8c497d2e88b96f9c",
+    "later_3d_cover_R3_zip_sha256": "727b05c5afc367196b14e808d272365274d930c1eda877235d303c74c900ec62",
+    "active_visual_reference": "G05 R3 con explicaciones aprobadas R1, revisadas para R4",
+    "R1_R3_file_comparison_from_procedencia": "../../COMPARACION_R1_R3_ARCHIVO_POR_ARCHIVO.json"
+  },
+  "R4_presentation": {
+    "drillholes_3d": 44,
+    "trajectory_points": 313,
+    "origin": "trazas XYZ ya presentes en el HTML fuente de este grupo; sin reprocesar ni recalcular modelo",
+    "original_data_and_model_outputs": "preserved_byte_for_byte",
+    "interaction_validation": "pending_manual_Chrome_acceptance"
+  }
+}

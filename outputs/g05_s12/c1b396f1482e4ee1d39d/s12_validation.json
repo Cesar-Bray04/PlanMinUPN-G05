@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": {
+    "A_moved_balance": true,
+    "A_plant_balance": true,
+    "A_opex_balance": true,
+    "A_capex_balance": true,
+    "A_capacities": true,
+    "A_fractions": true,
+    "B_moved_balance": true,
+    "B_plant_balance": true,
+    "B_opex_balance": true,
+    "B_capex_balance": true,
+    "B_capacities": true,
+    "B_fractions": true,
+    "unknown_not_allocated": true
+  }
+}
