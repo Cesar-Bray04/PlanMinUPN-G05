@@ -1,0 +1,12 @@
+/* R4: decision explanations separate consequence from professional procedure. */
+.decision-list .decision-explain{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
+.decision-list .professional-box{border-left:3px solid #bf8752;background:#26251e;border-radius:0 8px 8px 0;padding:11px 12px}
+.decision-list .professional-box>strong{display:block;color:#f1be87;font-size:13px;letter-spacing:.02em;margin-bottom:7px}
+.professional-steps{display:grid;gap:5px;margin:0}
+.professional-steps div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:start}
+.professional-steps dt{color:#f1be87;font-size:11px;font-weight:800}
+.professional-steps dd{margin:0;color:#c4dcd3;font-size:12px;line-height:1.48}
+.decision-list .decision-story .decision-summary strong{display:block;margin-bottom:4px}
+.decision-list .decision-story .decision-boundary strong{display:block;margin-bottom:4px}
+@media(max-width:1050px){.decision-list .decision-explain{grid-template-columns:1fr}}
+@media(max-width:600px){.professional-steps div{grid-template-columns:80px minmax(0,1fr)}}

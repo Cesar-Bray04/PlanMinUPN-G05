@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": {
+    "all_11550_block_ids_preserved": true,
+    "finite_volume_bounds": true,
+    "air_not_estimated": true,
+    "unassigned_not_estimated": true,
+    "missing_density_preserves_null_tonnage": true,
+    "tonnage_mass_balance": true,
+    "partial_volumes_integrated_or_explicitly_missing": true,
+    "cu_pct_minima": true,
+    "cu_pct_maximum_and_radius": true,
+    "cu_pct_weights_sum_one": true,
+    "cu_pct_zero_or_positive": true,
+    "mo_pct_minima": true,
+    "mo_pct_maximum_and_radius": true,
+    "mo_pct_weights_sum_one": true,
+    "mo_pct_zero_or_positive": true,
+    "au_gt_minima": true,
+    "au_gt_maximum_and_radius": true,
+    "au_gt_weights_sum_one": true,
+    "au_gt_zero_or_positive": true,
+    "density_t_m3_minima": true,
+    "density_t_m3_maximum_and_radius": true,
+    "density_t_m3_weights_sum_one": true,
+    "density_t_m3_zero_or_positive": true
+  },
+  "validation_scope": "COMPUTATIONAL_AND_ACADEMIC_RULES; no continuidad geológica ni CRS formal acreditados"
+}

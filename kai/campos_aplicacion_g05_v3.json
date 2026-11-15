@@ -1,0 +1,236 @@
+[
+  {
+    "id": "S11.CU75",
+    "label": "Bloques con Cu a 75 m",
+    "unit": "bloques",
+    "stage": "S11",
+    "places": 0,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.CU50",
+    "label": "Bloques con Cu a 50 m",
+    "unit": "bloques",
+    "stage": "S11",
+    "places": 0,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.DENSIDAD",
+    "label": "Bloques con densidad",
+    "unit": "bloques",
+    "stage": "S11",
+    "places": 0,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.CUANTIFICADOS",
+    "label": "Bloques con tonelaje",
+    "unit": "bloques",
+    "stage": "S11",
+    "places": 0,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.TONELAJE",
+    "label": "Tonelaje cuantificable",
+    "unit": "t",
+    "stage": "S11",
+    "places": 3,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.CU_T",
+    "label": "Bloques con Cu y tonelaje",
+    "unit": "bloques",
+    "stage": "S11",
+    "places": 0,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.CU",
+    "label": "Cu estimado",
+    "unit": "%",
+    "stage": "S11",
+    "places": 6,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.RHO",
+    "label": "Densidad estimada",
+    "unit": "t/m3",
+    "stage": "S11",
+    "places": 6,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.V",
+    "label": "Volumen de roca",
+    "unit": "m3",
+    "stage": "S11",
+    "places": 3,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.T",
+    "label": "Tonelaje del bloque",
+    "unit": "t",
+    "stage": "S11",
+    "places": 3,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.H",
+    "label": "Sondajes usados para Cu",
+    "unit": "sondajes",
+    "stage": "S11",
+    "places": 0,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.MO",
+    "label": "Mo estimado",
+    "unit": "%",
+    "stage": "S11",
+    "places": 6,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S11.B.AU",
+    "label": "Au estimado",
+    "unit": "g/t",
+    "stage": "S11",
+    "places": 6,
+    "pantalla": "index.html#s11",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.ORE_N",
+    "label": "Bloques candidatos a mineral",
+    "unit": "bloques",
+    "stage": "S12",
+    "places": 0,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.WASTE_N",
+    "label": "Bloques candidatos a desmonte",
+    "unit": "bloques",
+    "stage": "S12",
+    "places": 0,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.UNKNOWN",
+    "label": "Bloques sin clasificar",
+    "unit": "bloques",
+    "stage": "S12",
+    "places": 0,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.ORE_T",
+    "label": "Tonelaje candidato a mineral",
+    "unit": "t",
+    "stage": "S12",
+    "places": 3,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.WASTE_T",
+    "label": "Tonelaje candidato a desmonte",
+    "unit": "t",
+    "stage": "S12",
+    "places": 3,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.MINE",
+    "label": "Movimiento asignado del período",
+    "unit": "t",
+    "stage": "S12",
+    "places": 3,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.PLANT",
+    "label": "Tratamiento asignado del período",
+    "unit": "t",
+    "stage": "S12",
+    "places": 3,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.TRUCK_A",
+    "label": "Camiones para la meta A",
+    "unit": "camiones",
+    "stage": "S12",
+    "places": 0,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.TRUCK_B",
+    "label": "Camiones para la meta B",
+    "unit": "camiones",
+    "stage": "S12",
+    "places": 0,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.CAPEX",
+    "label": "Diferencia CAPEX B menos A",
+    "unit": "USD",
+    "stage": "S12",
+    "places": 2,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.OPEX",
+    "label": "OPEX A del período",
+    "unit": "USD",
+    "stage": "S12",
+    "places": 2,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.B.ALLOC",
+    "label": "A: movimiento asignado al bloque",
+    "unit": "t",
+    "stage": "S12",
+    "places": 3,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  },
+  {
+    "id": "S12.B.OPEX",
+    "label": "A: OPEX asignado al bloque",
+    "unit": "USD",
+    "stage": "S12",
+    "places": 3,
+    "pantalla": "index.html#s12",
+    "pista": "Vuelve a la pantalla indicada y lee ese dato. Conserva la unidad; no lo deduzcas por el color."
+  }
+]

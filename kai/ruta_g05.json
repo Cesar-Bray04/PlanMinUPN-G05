@@ -1,0 +1,81 @@
+{
+  "id": "PLANMINUPN2-G05-SESION-01-R5",
+  "grupo": "G05",
+  "proyecto": "Santa Elena",
+  "dataset": "DS05",
+  "release": "EXP03",
+  "origen_r4": "RUTA_KAI_PRIMERA_SESION.md",
+  "criterio_general": "Refuerzo conceptual -> pantalla -> una pregunta -> explicación original del estudiante -> retroalimentación -> registrar evidencia -> siguiente paso.",
+  "pasos": [
+    {
+      "id": 1,
+      "titulo": "Reconoce tu proyecto",
+      "ancla": "proyecto",
+      "url": "index.html#proyecto",
+      "explicacion_base": "G05 trabaja con Santa Elena, un depósito sintético del release DS05/EXP03. El grupo construyó un modelo categórico preliminar; todavía no ha realizado un plan de extracción.",
+      "pregunta_base": "¿Santa Elena tiene por ahora un modelo preliminar de bloques o un plan de extracción?",
+      "criterio": "Reconoce que existe un modelo preliminar de bloques, lo distingue de un plan de extracción y explica su utilidad inicial para ubicar y organizar la información disponible del subsuelo y reconocer lo que falta conocer.",
+      "error_frecuente": "Confundir visualización de bloques con pit o cronograma de minado."
+    },
+    {
+      "id": 2,
+      "titulo": "Sigue las observaciones",
+      "ancla": "datos",
+      "url": "index.html#datos",
+      "explicacion_base": "Los 44 sondajes permiten observar el subsuelo en ubicaciones específicas. Collar registra el origen; survey registra cambios de dirección; los ensayes miden muestras y las 459 densidades son mediciones de muestra, no valores estimados de bloque.",
+      "pregunta_base": "¿Las 459 mediciones de densidad ya significan que cada bloque tiene una densidad estimada?",
+      "criterio": "Distingue medición de muestra de estimación de propiedad por bloque.",
+      "error_frecuente": "Inferir densidad de bloque a partir del recuento de mediciones."
+    },
+    {
+      "id": 3,
+      "titulo": "Comprende el posicionamiento",
+      "ancla": "datos",
+      "url": "index.html#datos",
+      "explicacion_base": "El collar define el punto de inicio y survey aporta la orientación a distintas profundidades. Al calcular la trayectoria por desurvey podemos ubicar cada intervalo observado en coordenadas XYZ, sin suponer que existe continuidad geológica entre sondajes.",
+      "pregunta_base": "¿Por qué necesitamos calcular la trayectoria del sondaje para ubicar un intervalo de litología en 3D?",
+      "criterio": "Explica la transformación de profundidad de sondaje a posición XYZ.",
+      "error_frecuente": "Suponer que solo con la profundidad ya se conoce XYZ."
+    },
+    {
+      "id": 4,
+      "titulo": "Lee el compositado",
+      "ancla": "compositado",
+      "url": "index.html#compositado",
+      "explicacion_base": "Para comparar muestras de distintas longitudes se crean compósitos con un soporte objetivo de 2 m. En Santa Elena, el contacto a 9 m del sondaje SE-C01-001 separa OVB de VOL: se conserva un residuo de 8 a 9 m antes que mezclar códigos.",
+      "pregunta_base": "Si buscamos compósitos de 2 m, ¿por qué conservamos el intervalo 8–9 m de solo 1 m?",
+      "criterio": "Explica conservación de contacto y residuo sin inventar información.",
+      "error_frecuente": "Creer que toda unidad final debe medir exactamente 2 m."
+    },
+    {
+      "id": 5,
+      "titulo": "Interpreta la malla",
+      "ancla": "bloques",
+      "url": "index.html#bloques",
+      "explicacion_base": "La malla de Santa Elena tiene 11 550 celdas de 50 × 50 × 10 m. La topografía permite clasificar ROCK, AIR y PARTIAL. PARTIAL significa que una celda cruza la superficie, pero no nos dice cuánto volumen de roca contiene.",
+      "pregunta_base": "¿Un bloque PARTIAL nos indica automáticamente cuántos metros cúbicos de roca tiene?",
+      "criterio": "Distingue clasificación topográfica de cálculo de fracción de roca.",
+      "error_frecuente": "Tratar todo bloque PARTIAL como volumen de roca completo."
+    },
+    {
+      "id": 6,
+      "titulo": "Lee asignación y 3D",
+      "ancla": "tresd",
+      "url": "index.html#tresd",
+      "explicacion_base": "En el modelo de Santa Elena, 978 de las 11 550 celdas tienen asignación litológica preliminar. Las demás quedan sin asignación; eso no equivale a un valor de ley cero. Las vistas 3D ayudan a explorar la geometría, pero no certifican el modelo.",
+      "pregunta_base": "Si un bloque aparece sin asignación litológica, ¿podemos decir que su ley de cobre es cero?",
+      "criterio": "Distingue dato no disponible de valor cero y clase litológica de ley estimada.",
+      "error_frecuente": "Confundir UNASSIGNED con ley cero o con estéril verificado."
+    },
+    {
+      "id": 7,
+      "titulo": "Explica el estado real",
+      "ancla": "estado",
+      "url": "index.html#estado",
+      "explicacion_base": "Las decisiones sobre compositado, tamaño de celda y asignación permiten construir un primer modelo; para declarar recursos, reservas o un plan de minado faltan estimaciones, validación geológica, y estudios adicionales. Una decisión documentada no se vuelve automáticamente óptima.",
+      "pregunta_base": "¿Qué información o validación falta para afirmar que Santa Elena tiene recursos o un plan de minado sustentado?",
+      "criterio": "Menciona ausencia de estimaciones validadas, controles geológicos y estudios de planificación; no atribuye recursos.",
+      "error_frecuente": "Confundir modelo categórico preliminar con recursos o reservas."
+    }
+  ]
+}

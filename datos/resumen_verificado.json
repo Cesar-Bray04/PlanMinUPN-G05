@@ -1,0 +1,173 @@
+{
+  "project": {
+    "group": "G05",
+    "name": "Santa Elena",
+    "project_id": "santa_elena",
+    "dataset": "DS05",
+    "release": "EXP03",
+    "synthetic_data": true
+  },
+  "source": {
+    "repo": "https://github.com/Cesar-Bray04/PlanMinUPN-G05",
+    "branch": "feature/m01b-block-model",
+    "commit": "7825c2110a111193eb8e069c6358baa0dca0eb3e"
+  },
+  "exploration": {
+    "holes": 44,
+    "survey": 313,
+    "assays": 5803,
+    "lithology_intervals": 120,
+    "density_observations": 459,
+    "topography_points": 218112,
+    "campaigns": [
+      {
+        "id": "CAMPAIGN_01",
+        "sondajes": 16,
+        "survey": 113,
+        "ensayes": 2183,
+        "litologia": 33,
+        "densidad": 173
+      },
+      {
+        "id": "CAMPAIGN_02",
+        "sondajes": 20,
+        "survey": 137,
+        "ensayes": 2620,
+        "litologia": 64,
+        "densidad": 206
+      },
+      {
+        "id": "CAMPAIGN_03",
+        "sondajes": 8,
+        "survey": 63,
+        "ensayes": 1000,
+        "litologia": 23,
+        "densidad": 80
+      }
+    ]
+  },
+  "compositing": {
+    "target_length_m": 2,
+    "total": 5830,
+    "full": 5750,
+    "residual": 80,
+    "example": {
+      "hole_id": "SE-C01-001",
+      "window_m": [
+        8.0,
+        13.0
+      ],
+      "contact_m": 9.0,
+      "assays": [
+        {
+          "sample_id": "SE-C01-001-A0005",
+          "from_m": "8.000000000",
+          "to_m": "10.000000000",
+          "cu_pct": "0.022655245"
+        },
+        {
+          "sample_id": "SE-C01-001-A0006",
+          "from_m": "10.000000000",
+          "to_m": "12.000000000",
+          "cu_pct": "0.019688979"
+        },
+        {
+          "sample_id": "SE-C01-001-A0007",
+          "from_m": "12.000000000",
+          "to_m": "14.000000000",
+          "cu_pct": "0.020453467"
+        }
+      ],
+      "composites": [
+        {
+          "from_m": "8",
+          "to_m": "9",
+          "length_m": "1",
+          "lith_code": "OVB",
+          "cu_pct": "0.022655245",
+          "residual_flag": "true",
+          "source_sample_ids": "SE-C01-001-A0005"
+        },
+        {
+          "from_m": "9",
+          "to_m": "11",
+          "length_m": "2",
+          "lith_code": "VOL",
+          "cu_pct": "0.021172112",
+          "residual_flag": "false",
+          "source_sample_ids": "SE-C01-001-A0005;SE-C01-001-A0006"
+        },
+        {
+          "from_m": "11",
+          "to_m": "13",
+          "length_m": "2",
+          "lith_code": "VOL",
+          "cu_pct": "0.020071223",
+          "residual_flag": "false",
+          "source_sample_ids": "SE-C01-001-A0006;SE-C01-001-A0007"
+        }
+      ],
+      "lithology": [
+        {
+          "from_m": "0.000000000",
+          "to_m": "9.000000000",
+          "lith_code": "OVB"
+        },
+        {
+          "from_m": "9.000000000",
+          "to_m": "210.000000000",
+          "lith_code": "VOL"
+        }
+      ]
+    }
+  },
+  "model": {
+    "block_size_m": [
+      50,
+      50,
+      10
+    ],
+    "shape": [
+      15,
+      14,
+      55
+    ],
+    "block_count": 11550,
+    "local_origin_m": [
+      242225.0,
+      8196250.0,
+      2990.0
+    ],
+    "topography": {
+      "ROCK": 6853,
+      "PARTIAL": 204,
+      "AIR": 4493
+    },
+    "lithology": {
+      "UNKNOWN/UNASSIGNED": 10572,
+      "ASSIGNED": 978
+    },
+    "assigned_codes": {
+      "VOL": 425,
+      "POR": 463,
+      "BRX": 54,
+      "OVB": 36
+    },
+    "assignment_reasons": {
+      "NO_LITHOLOGY_SUPPORT": 10504,
+      "ASSIGNED": 978,
+      "CODE_CONFLICT": 68
+    },
+    "all_blocks_in_original_html": true,
+    "quantitative_estimates_available": false
+  },
+  "limits": [
+    "CRS y datum vertical de Topopl no documentados",
+    "Topopl no forma parte del manifiesto del release",
+    "Códigos litológicos sin definición oficial",
+    "Sin fracción volumétrica de roca en PARTIAL",
+    "Sin continuidad geológica entre sondajes demostrada",
+    "Sin leyes, densidad o tonelaje estimados por bloque",
+    "Sin recursos, reservas, pit ni secuenciamiento"
+  ]
+}
